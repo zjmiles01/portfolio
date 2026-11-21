@@ -1,15 +1,15 @@
 :root {
   color-scheme: dark;
-  --ink: #edf3f1;
-  --muted: #9aa7a4;
-  --paper: #090d0f;
-  --panel: #101619;
-  --panel-raised: #141c20;
-  --line: #2a3539;
-  --line-strong: #46545a;
-  --accent: #72f5b0;
-  --accent-strong: #24d982;
-  --signal: #67c7ff;
+  --ink: #ffffff;
+  --muted: #a6a6a6;
+  --paper: #000000;
+  --panel: #080808;
+  --panel-raised: #101010;
+  --line: #282828;
+  --line-strong: #595959;
+  --accent: #ffffff;
+  --accent-strong: #d9d9d9;
+  --signal: #8b8b8b;
   --radius: 2px;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -29,8 +29,8 @@ body {
   color: var(--ink);
   background-color: var(--paper);
   background-image:
-    linear-gradient(rgba(114, 245, 176, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(114, 245, 176, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 48px 48px;
   font-size: 1rem;
   line-height: 1.6;
@@ -218,7 +218,7 @@ h1 span {
   display: grid;
   place-items: center;
   border: 1px solid var(--line-strong);
-  background: rgba(16, 22, 25, 0.72);
+  background: rgba(8, 8, 8, 0.82);
 }
 
 .hero-mark::before,
@@ -386,7 +386,7 @@ h2 {
   border-bottom: 1px solid var(--line);
 }
 
-.report-item:hover { background: rgba(114, 245, 176, 0.035); }
+.report-item:hover { background: rgba(255, 255, 255, 0.045); }
 
 .report-item h3 {
   margin-bottom: 0.25rem;
