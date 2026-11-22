@@ -5,94 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="A personal portfolio of projects, reports, and ongoing work."
+      content="The software, robotics, and engineering portfolio of Zakary Miles."
     />
     <meta name="theme-color" content="#000000" />
-    <title>Portfolio</title>
+    <title>Zakary Miles — Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="portfolio-data.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Back to top" data-site-name>Portfolio</a>
+      <a class="brand" href="#top" aria-label="Back to top" data-site-name>Zakary Miles</a>
       <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
         <a href="#projects">Projects</a>
-        <a href="#reports">Reports</a>
         <a href="#about">About</a>
+        <a href="#resume">Resume</a>
       </nav>
-      <a class="header-contact" href="mailto:hello@example.com" data-email-link>Contact</a>
+      <a class="header-contact" href="#contact">Contact</a>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="intro-heading">
         <div class="hero-copy">
-          <p class="eyebrow" data-role>Student · Builder · Researcher</p>
-          <h1 id="intro-heading">
-            Work worth<br />
-            <span>sharing.</span>
-          </h1>
+          <p class="eyebrow" data-role>Computer Science · Software · Robotics</p>
+          <h1 id="intro-heading">Zakary<br />Miles.</h1>
           <p class="hero-summary" data-intro>
-            A growing collection of the projects I build, the questions I explore,
-            and the reports I write along the way.
+            Computer Science student building full-stack software, data systems,
+            and autonomous hardware.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View my work</a>
-            <a class="text-link" href="#about">More about me</a>
+            <a class="button button-primary" href="#projects">View projects</a>
+            <a class="text-link" href="#work">Work experience</a>
           </div>
         </div>
       </section>
 
-      <section class="section projects-section" id="projects" aria-labelledby="projects-heading">
+      <section class="section" id="work" aria-labelledby="work-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Experience</p>
+            <h2 id="work-heading">Work</h2>
+          </div>
+          <p>Engineering, data operations, and hands-on technical work.</p>
+        </div>
+        <div class="work-list" id="work-list"></div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-heading">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Selected work</p>
             <h2 id="projects-heading">Projects</h2>
           </div>
-          <p>A place for finished work, experiments, and everything in between.</p>
+          <p>Software platforms and physical systems built from the ground up.</p>
         </div>
-        <div class="project-grid" id="project-grid"></div>
-        <p class="empty-state" id="projects-empty" hidden>
-          New projects will appear here soon.
-        </p>
-      </section>
 
-      <section class="section reports-section" id="reports" aria-labelledby="reports-heading">
-        <div class="section-heading reports-heading">
-          <div>
-            <p class="eyebrow">Writing &amp; research</p>
-            <h2 id="reports-heading">Reports</h2>
-          </div>
-          <p>Longer-form analysis, documentation, and project write-ups.</p>
+        <div class="project-tabs" role="tablist" aria-label="Project categories">
+          <button
+            class="project-tab is-active"
+            id="software-tab"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="software-panel"
+            data-project-tab="software"
+          >Software</button>
+          <button
+            class="project-tab"
+            id="hardware-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="hardware-panel"
+            data-project-tab="hardware"
+          >Hardware</button>
         </div>
-        <div class="report-list" id="report-list"></div>
-        <p class="empty-state" id="reports-empty" hidden>
-          Reports and write-ups will appear here soon.
-        </p>
+
+        <div
+          class="project-panel"
+          id="software-panel"
+          role="tabpanel"
+          aria-labelledby="software-tab"
+          data-project-panel="software"
+        >
+          <div class="project-grid" id="software-projects"></div>
+        </div>
+        <div
+          class="project-panel"
+          id="hardware-panel"
+          role="tabpanel"
+          aria-labelledby="hardware-tab"
+          data-project-panel="hardware"
+          hidden
+        >
+          <div class="project-grid" id="hardware-projects"></div>
+        </div>
       </section>
 
       <section class="section about-section" id="about" aria-labelledby="about-heading">
         <div>
-          <p class="eyebrow">A little context</p>
+          <p class="eyebrow">Background</p>
           <h2 id="about-heading">About me</h2>
         </div>
         <div class="about-copy">
-          <p data-about>
-            I’m building this portfolio as a home for work I’m proud of. As new
-            projects and reports are completed, I’ll add them here.
+          <p data-about></p>
+          <div class="skill-groups" id="skill-groups"></div>
+        </div>
+      </section>
+
+      <section class="section resume-section" id="resume" aria-labelledby="resume-heading">
+        <div>
+          <p class="eyebrow">Full details</p>
+          <h2 id="resume-heading">Resume</h2>
+        </div>
+        <div class="resume-copy">
+          <p>
+            Education, experience, projects, and technical skills in one place.
           </p>
-          <div class="about-links">
-            <a href="mailto:hello@example.com" data-email-link>Send me an email</a>
-            <a href="https://github.com/" data-github-link>GitHub profile</a>
-            <a href="#reports">Browse reports</a>
+          <div class="resume-actions">
+            <a
+              class="button button-primary"
+              href="assets/Zakary-Miles-Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >Open resume</a>
+            <a class="text-link" href="assets/Zakary-Miles-Resume.pdf" download>Download PDF</a>
           </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="contact-heading">Let’s build something.</h2>
+        <a class="contact-email" href="mailto:zjmiles01@gmail.com" data-email-link>
+          zjmiles01@gmail.com
+        </a>
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/zakarymiles" data-linkedin-link>LinkedIn</a>
+          <a href="https://github.com/zjmiles01" data-github-link>GitHub</a>
+          <a href="assets/Zakary-Miles-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>© <span id="current-year"></span> <span data-site-name>Portfolio</span></p>
-      <p>Built simply. Updated often.</p>
+      <p>© <span id="current-year"></span> <span data-site-name>Zakary Miles</span></p>
+      <p>Software · Robotics · Systems</p>
     </footer>
   </body>
 </html>

@@ -1,14 +1,11 @@
 :root {
   color-scheme: dark;
   --ink: #ffffff;
-  --muted: #a6a6a6;
+  --muted: #a5a5a5;
   --paper: #000000;
-  --panel: #080808;
-  --line: #282828;
-  --line-strong: #595959;
-  --accent: #ffffff;
-  --accent-strong: #d9d9d9;
-  --radius: 2px;
+  --panel: #090909;
+  --line: #292929;
+  --line-strong: #5c5c5c;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -25,25 +22,21 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background-color: var(--paper);
+  background: var(--paper);
   font-size: 1rem;
   line-height: 1.6;
 }
 
 ::selection {
   color: var(--paper);
-  background: var(--accent);
+  background: var(--ink);
 }
 
-a {
-  color: inherit;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.28em;
-}
+a { color: inherit; }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 4px;
 }
 
@@ -63,10 +56,25 @@ footer {
   border-bottom: 1px solid var(--line);
 }
 
-.brand {
+.brand,
+nav a,
+.header-contact,
+.eyebrow,
+.work-meta,
+.project-tab,
+.project-subtitle,
+.project-stack,
+.project-link,
+.text-link,
+.about-links,
+.contact-links,
+footer {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.94rem;
-  font-weight: 700;
+}
+
+.brand {
+  font-size: 0.95rem;
+  font-weight: 750;
   letter-spacing: 0.02em;
   text-decoration: none;
   text-transform: uppercase;
@@ -75,14 +83,13 @@ footer {
 nav {
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  gap: 1.8rem;
 }
 
 nav a,
 .header-contact {
   color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 650;
   letter-spacing: 0.05em;
   text-decoration: none;
@@ -90,11 +97,11 @@ nav a,
 }
 
 nav a:hover,
-.header-contact:hover { color: var(--accent); }
+.header-contact:hover { color: var(--ink); }
 
 .header-contact {
   color: var(--ink);
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 1px solid var(--ink);
 }
 
 .hero {
@@ -104,13 +111,7 @@ nav a:hover,
   padding: 6rem 0;
 }
 
-.hero-copy { max-width: 920px; }
-
-.eyebrow,
-.project-meta,
-.report-meta {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
+.hero-copy { max-width: 930px; }
 
 .eyebrow {
   margin: 0 0 1.25rem;
@@ -127,26 +128,22 @@ h3,
 p { margin-top: 0; }
 
 h1 {
-  max-width: 850px;
   margin-bottom: 2rem;
-  font-size: clamp(4rem, 8.7vw, 8.5rem);
+  font-size: clamp(4.5rem, 10vw, 9rem);
   font-weight: 760;
-  line-height: 0.88;
-  letter-spacing: -0.07em;
-}
-
-h1 span {
-  color: var(--ink);
+  line-height: 0.86;
+  letter-spacing: -0.075em;
 }
 
 .hero-summary {
-  max-width: 650px;
+  max-width: 680px;
   margin-bottom: 2.25rem;
   color: var(--muted);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
 }
 
-.hero-actions {
+.hero-actions,
+.resume-actions {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -159,10 +156,10 @@ h1 span {
   align-items: center;
   justify-content: center;
   padding: 0.65rem 1.4rem;
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
+  border: 1px solid var(--ink);
+  border-radius: 0;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-decoration: none;
@@ -171,26 +168,24 @@ h1 span {
 
 .button-primary {
   color: var(--paper);
-  background: var(--accent);
+  background: var(--ink);
 }
 
 .button-primary:hover {
-  background: var(--accent-strong);
-  border-color: var(--accent-strong);
+  color: var(--ink);
+  background: var(--paper);
 }
 
 .text-link {
   color: var(--ink);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
+  text-underline-offset: 0.28em;
 }
 
-.text-link:hover { color: var(--accent); }
-
 .section {
-  padding: 6rem 0;
+  padding: 6.5rem 0;
   border-top: 1px solid var(--line);
 }
 
@@ -199,7 +194,7 @@ h1 span {
   grid-template-columns: 1fr minmax(260px, 430px);
   align-items: end;
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .section-heading > p {
@@ -210,11 +205,104 @@ h1 span {
 
 h2 {
   margin-bottom: 0;
-  font-size: clamp(2.75rem, 5.3vw, 4.8rem);
+  font-size: clamp(3rem, 6vw, 5.5rem);
   font-weight: 720;
-  line-height: 1;
-  letter-spacing: -0.055em;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
 }
+
+h3 {
+  font-size: clamp(1.35rem, 2.7vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.work-list { border-top: 1px solid var(--line-strong); }
+
+.work-item {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.38fr) 1fr;
+  gap: clamp(2rem, 7vw, 7rem);
+  padding: 2.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.work-meta p { margin-bottom: 0.3rem; }
+
+.work-period {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.work-location {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.work-company {
+  margin-bottom: 0.45rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.work-body h3 { margin-bottom: 1rem; }
+
+.work-summary {
+  max-width: 760px;
+  margin-bottom: 1.2rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.work-body ul,
+.project-details {
+  max-width: 800px;
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.work-body li + li,
+.project-details li + li { margin-top: 0.45rem; }
+
+.project-tabs {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-tab {
+  position: relative;
+  padding: 0 0 1rem;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-tab::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  background: transparent;
+}
+
+.project-tab:hover,
+.project-tab.is-active { color: var(--ink); }
+
+.project-tab.is-active::after { background: var(--ink); }
+
+.project-panel { padding-top: 2.5rem; }
+.project-panel[hidden] { display: none; }
 
 .project-grid {
   display: grid;
@@ -222,125 +310,137 @@ h2 {
   gap: 2.5rem;
 }
 
+#hardware-projects { grid-template-columns: minmax(0, 1fr); }
+
 .project-card {
-  min-height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 2rem 0;
-  background: transparent;
   border-top: 1px solid var(--line-strong);
-  border-radius: 0;
 }
 
-.project-meta,
-.report-meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.55rem 1rem;
-  margin-bottom: 2rem;
+.project-subtitle {
+  margin-bottom: 0.6rem;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.project-card h3 {
-  max-width: 530px;
-  margin-bottom: 1rem;
-  font-size: clamp(1.8rem, 3.2vw, 2.75rem);
-  line-height: 1.04;
-  letter-spacing: -0.045em;
+.project-card h3 { margin-bottom: 1.4rem; }
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
 }
 
-.project-card p {
-  max-width: 550px;
-  margin-bottom: 2rem;
+.project-stack li {
+  padding: 0.25rem 0.55rem;
   color: var(--muted);
+  border: 1px solid var(--line);
+  font-size: 0.76rem;
 }
 
-.card-link,
-.report-link {
+.project-description {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+.project-details { margin-bottom: 2rem; }
+
+.project-link {
+  margin-top: auto;
   align-self: flex-start;
-  color: var(--ink);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.88rem;
+  color: var(--muted);
+  font-size: 0.84rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
   text-transform: uppercase;
+  text-underline-offset: 0.28em;
 }
 
-.card-link:hover,
-.report-link:hover { color: var(--accent); }
+.project-link:hover { color: var(--ink); }
 
-.report-list { border-top: 1px solid var(--line); }
-
-.report-item {
+.about-section,
+.resume-section {
   display: grid;
-  grid-template-columns: minmax(150px, 0.4fr) 1fr auto;
-  align-items: center;
-  gap: 2rem;
-  padding: 1.7rem 1rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.report-item h3 {
-  margin-bottom: 0.25rem;
-  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-  letter-spacing: -0.025em;
-}
-
-.report-item p,
-.report-meta { margin-bottom: 0; }
-
-.report-item p { color: var(--muted); }
-
-.report-link { white-space: nowrap; }
-
-.about-section {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.75fr 1.25fr;
   gap: clamp(3rem, 10vw, 9rem);
 }
 
-.about-copy {
-  padding-left: 0;
-}
-
 .about-copy > p {
-  max-width: 700px;
-  margin-bottom: 2.5rem;
-  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
-  line-height: 1.48;
+  max-width: 720px;
+  margin-bottom: 3.25rem;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.5;
   letter-spacing: -0.02em;
 }
 
-.about-links {
+.skill-groups { border-top: 1px solid var(--line-strong); }
+
+.skill-group {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.3fr) 1fr;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-group h3,
+.skill-group p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.skill-group h3 {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  text-transform: uppercase;
+}
+
+.skill-group p { color: var(--muted); }
+
+.resume-copy > p {
+  max-width: 600px;
+  margin-bottom: 2rem;
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+.contact-section { padding-block: 8rem; }
+
+.contact-section h2 {
+  max-width: 900px;
+  margin-bottom: 2.5rem;
+}
+
+.contact-email {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  font-size: clamp(1.25rem, 3vw, 2.2rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  text-underline-offset: 0.2em;
+}
+
+.contact-links {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
 }
 
-.about-links a {
+.contact-links a {
   color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.88rem;
   font-weight: 700;
   text-transform: uppercase;
+  text-underline-offset: 0.28em;
 }
 
-.about-links a:hover { color: var(--accent); }
-
-.empty-state {
-  padding: 3rem;
-  color: var(--muted);
-  background: var(--panel);
-  border: 1px dashed var(--line-strong);
-  border-radius: 0;
-  text-align: center;
-}
+.contact-links a:hover { color: var(--ink); }
 
 footer {
   min-height: 7rem;
@@ -350,52 +450,44 @@ footer {
   gap: 2rem;
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
 }
 
 footer p { margin: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .button,
-  a { transition: 150ms ease; }
+  a,
+  button { transition: color 150ms ease, background-color 150ms ease; }
 }
 
-@media (max-width: 780px) {
-  .site-header { min-height: 4.75rem; }
+@media (max-width: 860px) {
   nav { display: none; }
 
-  .hero {
-    min-height: auto;
-    padding: 5.5rem 0;
-  }
-
   .section-heading,
-  .about-section {
+  .about-section,
+  .resume-section {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
+  .work-item { grid-template-columns: 1fr; gap: 1.25rem; }
   .project-grid { grid-template-columns: 1fr; }
-  .project-card { min-height: 280px; }
-
-  .report-item {
-    grid-template-columns: 1fr;
-    gap: 0.65rem;
-    padding-inline: 0;
-  }
-
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .site-header,
   main,
   footer {
     width: min(100% - 1.5rem, 1200px);
   }
 
-  h1 { font-size: clamp(3.2rem, 17vw, 4.6rem); }
+  .site-header { min-height: 4.75rem; }
+  h1 { font-size: clamp(4rem, 21vw, 6rem); }
+  .hero { min-height: auto; padding: 5.5rem 0; }
   .section { padding: 5rem 0; }
+  .contact-section { padding-block: 6rem; }
+
+  .skill-group { grid-template-columns: 1fr; gap: 0.35rem; }
 
   footer {
     align-items: flex-start;
