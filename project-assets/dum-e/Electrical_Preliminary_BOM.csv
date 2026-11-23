@@ -1,0 +1,28 @@
+System,Item,Qty,CAD and purchase status,Requirement or specification,Source,Checked,Price estimate,Availability
+Actuation,Waveshare 27166 ST3235,3,In CAD as envelope; to purchase,"6–12.6 V, 30 kg·cm at 12 V, 2.7 A locked rotor",https://www.waveshare.com/product/accessories/st3235-servo.htm,2026-11-21,USD 49.99 each,Unconfirmed
+Actuation,Servo horns and mounting screws,3,Envelope only; measure,Pattern not published,Measure real servo,Design assumption,Unquoted,Unconfirmed
+Motor control,Waveshare 25514 Bus Servo Adapter (A),1,To purchase after compatibility check,"5 A board maximum. Split motor supply externally. USB data; D and reference G to bus, isolate servo V from board.",https://docs.waveshare.com/Bus_Servo_Adapter_A/FAQ,2026-11-21,USD 4.99 listed,Unconfirmed
+Compute,Raspberry Pi 5,1,In CAD as envelope; to purchase,"5.1 V, 5 A recommended",Raspberry Pi docs,Design assumption,Unquoted,Unconfirmed
+Compute,Raspberry Pi 27 W USB-C supply,1,To purchase,Keeps vision and logging alive when motor power is removed,Raspberry Pi docs,Design assumption,Unquoted,Unconfirmed
+Compute,microSD or NVMe storage,1,To purchase,Capacity TBD,,Design assumption,Unquoted,Unconfirmed
+Supervisor,Arduino UNO R4 WiFi,1,In CAD; owned,"VIN 6–24 V, 5 V logic, GPIO up to 8 mA",Arduino datasheet,Design assumption,Unquoted,Unconfirmed
+Sensors,Raspberry Pi SC0872,1,In CAD as envelope; to purchase,"66° × 41°, CSI",https://pip.raspberrypi.com/categories/786-raspberry-pi-camera-module-3,2026-11-21,Unquoted,Unconfirmed
+Sensors,Raspberry Pi Camera Cable Standard–Mini 500 mm trial,1,To design and test,"15-way to 22-way. Mock up length, strain relief and dynamic bend radius before cutting harness.",https://www.raspberrypi.com/products/camera-cable/,2026-11-21,Unquoted,Unconfirmed
+Sensors,Adafruit 4407,1,In CAD as envelope; to purchase,"55 x 35 degrees; 3.3 V VIN, I2C address 0x33. R1 pod fit unresolved.",https://www.adafruit.com/product/4407,2026-11-21,USD 74.95 listed,Unconfirmed
+Power,Mean Well GST160A12-R7B,1,To purchase,"12 V, 11.5 A enclosed. Hold for correct rated mating DC harness and fault coordination.",https://www.meanwell.com/Upload/PDF/GST160A/GST160A-SPEC.PDF,2026-11-21,Unquoted,Unconfirmed
+Power,Fused 12 V distribution block,1,To design,"10 A main motor fuse, separate 3 A branch for each servo if the power wiring allows it","Calculated, confirm wiring",Design assumption,Unquoted,Unconfirmed
+Power,Bulk capacitor at servo bus,1,To design,Value TBD from measured transients,,Design assumption,Unquoted,Unconfirmed
+Safety,Schneider XB5AS8442 + independent NC auxiliary contact,1,To design and purchase,"22 mm mount, coil loop NC 11–12; isolated NC for UNO feedback.",https://iportal.se.com/Contents/docs/SQD-XB5AS8442_DATA%20SHEET.PDF,2026-11-21,Unquoted,Unconfirmed
+Safety,Motor-power relay or contactor with coil suppression,1,To design and purchase,"At least 15 A DC contacts, opens on stop or watchdog loss",,Design assumption,Unquoted,Unconfirmed
+Safety,Relay driver transistor stage,1,To design,Required because Arduino GPIO is limited to 8 mA,Arduino datasheet,Design assumption,Unquoted,Unconfirmed
+Feedback,Limit switches and flags,6,Not in CAD; to design,"Two NC per powered axis in series to one input. Flags, mounts and travel after opening require testing.",,Design assumption,Unquoted,Unconfirmed
+Mechanical,Physical hard stops,3,Missing from CAD; authorized development pending stop load cases,Must stop each axis before collision,,Design assumption,Unquoted,Unconfirmed
+Wiring,Servo bus cable set,1,To purchase or build,"Base to shoulder to tilt, with service loops",,Design assumption,Unquoted,Unconfirmed
+Wiring,Waveshare 25514 Bus Servo Adapter (A),2,To purchase,"5 A board maximum. Split motor supply externally. USB data; D and reference G to bus, isolate servo V from board.",https://docs.waveshare.com/Bus_Servo_Adapter_A/FAQ,2026-11-21,USD 4.99 listed,Unconfirmed
+Wiring,"16 AWG trunk, 18 AWG branches, strain reliefs, ferrules",1,To purchase,Confirm against fuse sizes,,Design assumption,Unquoted,Unconfirmed
+Audio,"Microphone, amplifier, speaker",1,Not in CAD; to design,Interface TBD,,Design assumption,Unquoted,Unconfirmed
+Controls,Momentary hold-to-run NO button,1,Hardware selection and bench test open,UNO D5 to GND only,,Design assumption,,Unconfirmed
+Controls,Motor-supply healthy isolated contact,1,Hardware selection and bench test open,Open on upstream 12 V loss. UNO D7 to GND when valid.,,Design assumption,,Unconfirmed
+Controls,Bench control box and labeled outlets,1,Hardware selection and bench test open,Stationary enclosure external to yaw; provide separate coil and motor protection.,,Design assumption,,Unconfirmed
+Controls,DC output mating harness,1,Hardware selection and bench test open,Match GST160A12-R7B connector pin drawing and parallel contacts. Rate for full trunk current.,,Design assumption,,Unconfirmed
+Controls,Separate servo power breakout,1,Hardware selection and bench test open,Three fused V/G branches. Data and reference only from adapter to servo bus.,,Design assumption,,Unconfirmed

@@ -19,11 +19,17 @@ function textElement(tag, className, text) {
   return element;
 }
 
+function bulletList(items, className) {
+  const list = document.createElement("ul");
+  list.className = className;
+  for (const item of items) list.append(textElement("li", "", item));
+  return list;
+}
+
 function renderProfile() {
   const { profile } = data;
   document.title = `${profile.name} — Portfolio`;
   setText("[data-site-name]", profile.name);
-  setText("[data-role]", profile.role);
   setText("[data-intro]", profile.intro);
   setText("[data-about]", profile.about);
   setLinks("[data-email-link]", `mailto:${profile.email}`);
@@ -50,14 +56,9 @@ function renderWork() {
     body.append(
       textElement("p", "work-company", job.company),
       textElement("h3", "", job.role),
-      textElement("p", "work-summary", job.summary),
     );
-
-    const details = document.createElement("ul");
-    job.details.forEach((detail) => {
-      details.append(textElement("li", "", detail));
-    });
-    body.append(details);
+    if (job.summary) body.append(textElement("p", "work-summary", job.summary));
+    if (job.details.length) body.append(bulletList(job.details, "resume-bullets"));
     item.append(meta, body);
     list.append(item);
   });
@@ -66,9 +67,22 @@ function renderWork() {
 function renderProjects(category) {
   const grid = document.querySelector(`#${category}-projects`);
 
+  if (!data.projects[category].length) {
+    grid.append(textElement("p", "projects-empty", "Project write-ups coming soon."));
+    return;
+  }
+
   data.projects[category].forEach((project) => {
     const card = document.createElement("article");
     card.className = "project-card";
+    if (project.image) {
+      const drawing = document.createElement("img");
+      drawing.className = "project-drawing";
+      drawing.src = project.image;
+      drawing.alt = project.imageAlt;
+      drawing.loading = "lazy";
+      card.append(drawing);
+    }
 
     const heading = document.createElement("div");
     heading.append(
@@ -83,15 +97,10 @@ function renderProjects(category) {
       stack.append(textElement("li", "", technology));
     });
 
-    const details = document.createElement("ul");
-    details.className = "project-details";
-    project.details.forEach((detail) => {
-      details.append(textElement("li", "", detail));
-    });
-
-    const link = textElement("a", "project-link", project.linkLabel);
-    link.href = project.link;
-    if (/^https?:\/\//.test(project.link)) {
+    const hasDestination = project.link && project.link !== "#";
+    const link = textElement(hasDestination ? "a" : "p", hasDestination ? "project-link" : "project-subtitle", project.linkLabel);
+    if (hasDestination) link.href = project.link;
+    if (hasDestination && /^https?:\/\//.test(project.link)) {
       link.target = "_blank";
       link.rel = "noreferrer";
     }
@@ -100,11 +109,26 @@ function renderProjects(category) {
       heading,
       stack,
       textElement("p", "project-description", project.description),
-      details,
+      bulletList(project.details, "project-details"),
       link,
     );
     grid.append(card);
   });
+}
+
+function renderResumeProjects() {
+  const container = document.getElementById("resume-projects");
+  for (const project of Object.values(data.projects).flat()) {
+    const entry = document.createElement("article");
+    const heading = textElement("h3", "", project.title);
+    if (project.link && project.link !== "#") {
+      const link = textElement("a", "", project.title);
+      link.href = project.link;
+      heading.replaceChildren(link);
+    }
+    entry.append(heading, bulletList(project.details, "resume-bullets"));
+    container.append(entry);
+  }
 }
 
 function setupProjectTabs() {
@@ -124,6 +148,14 @@ function setupProjectTabs() {
     });
   }
 
+  function selectLinkedPanel() {
+    const panel = panels.find((item) => "#" + item.id === location.hash);
+    if (panel) activateTab(panel.dataset.projectPanel);
+  }
+  activateTab(tabs[0].dataset.projectTab);
+  selectLinkedPanel();
+  window.addEventListener("hashchange", selectLinkedPanel);
+
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => activateTab(tab.dataset.projectTab));
     tab.addEventListener("keydown", (event) => {
@@ -138,23 +170,69 @@ function setupProjectTabs() {
 }
 
 function renderSkills() {
-  const container = document.querySelector("#skill-groups");
+  for (const container of document.querySelectorAll("[data-skills]")) {
+    for (const skill of data.skills) {
+      const group = document.createElement("div");
+      group.className = "skill-group";
+      group.append(textElement("h3", "", skill.label), bulletList(skill.items, "resume-bullets"));
+      container.append(group);
+    }
+  }
+}
 
-  data.skills.forEach((skill) => {
-    const group = document.createElement("div");
-    group.className = "skill-group";
-    group.append(
-      textElement("h3", "", skill.label),
-      textElement("p", "", skill.items),
-    );
-    container.append(group);
-  });
+function setupRoutes() {
+  const home = document.getElementById("projects");
+  const views = document.querySelectorAll("main > [data-page]");
+  const navigation = document.querySelectorAll(".site-header nav a");
+  const desktop = window.matchMedia("(min-width: 861px)");
+
+  function updateContentsMenus() {
+    for (const menu of document.querySelectorAll(".contents-menu")) menu.open = desktop.matches;
+  }
+
+  function showRoute() {
+    if (location.hash === "#work") history.replaceState(history.state, "", "#resume");
+    const target = document.getElementById(location.hash.slice(1));
+    const view = target?.closest("[data-page]") || home;
+    for (const page of views) page.hidden = page !== view;
+    for (const link of navigation) {
+      if (link.hash === "#" + view.dataset.page) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    }
+    const title = view.querySelector("h1");
+    document.title = view === home ? data.profile.name + " — Portfolio" : title.textContent + " — " + data.profile.name;
+
+    const menu = view.querySelector(".contents-menu");
+    if (menu) {
+      if (!desktop.matches) menu.open = false;
+      for (const link of menu.querySelectorAll("a")) {
+        if (link.hash === location.hash) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      }
+    }
+
+    // Reveal the view before moving focus or resolving a section fragment.
+    if (target === view || target?.id === "top") {
+      title.focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: "instant" });
+    } else if (target && view.contains(target)) {
+      target.querySelector("h2[tabindex], h1[tabindex]")?.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+  }
+
+  updateContentsMenus();
+  desktop.addEventListener("change", updateContentsMenus);
+  window.addEventListener("hashchange", showRoute);
+  showRoute();
 }
 
 renderProfile();
 renderWork();
 renderProjects("software");
 renderProjects("hardware");
+renderResumeProjects();
 renderSkills();
 setupProjectTabs();
+setupRoutes();
 setText("#current-year", new Date().getFullYear());

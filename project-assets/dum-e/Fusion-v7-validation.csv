@@ -1,0 +1,146 @@
+Check,Area,Description,Status,Measured,Expected
+INV-START,Integrity,Assembly starts in its design kinematic position,PASS,0.0,≤ 0.02 mm
+INV-01,Assembly,All 68 expected components are present,PASS,68,68
+INV-02,Assembly,No duplicate component occurrences,PASS,0,0
+INV-03,Assembly,Each component sits in its intended subassembly,PASS,0,0
+INV-04,Assembly,Each component is pinned to its subassembly,PASS,0,0
+INV-05,Assembly,Each component contains solid geometry,PASS,0,0
+INV-06,Timeline,No timeline errors or warnings,PASS,0,0
+INV-07,Parameters,All model parameters exist at their design values,PASS,165,165
+INV-R1-ARM,Assembly,Arm has the R1 service-port volume,PASS,123733.663,123733.66
+JNT-Yaw-LINK,Joints,Yaw connects A3_Turntable_Shoulder to A1_Base,PASS,"['A1_Base', 'A3_Turntable_Shoulder']","['A1_Base', 'A3_Turntable_Shoulder']"
+JNT-Yaw-AXIS,Joints,Yaw rotates about its design axis,PASS,1.0,1
+JNT-Yaw-LIMIT,Joints,Yaw limits match the design,PASS,"[-90.0, 90.0]","[-90, 90]"
+JNT-Yaw_Pinion-LINK,Joints,Yaw_Pinion connects A2_Yaw_Pinion to A1_Base,PASS,"['A1_Base', 'A2_Yaw_Pinion']","['A1_Base', 'A2_Yaw_Pinion']"
+JNT-Yaw_Pinion-AXIS,Joints,Yaw_Pinion rotates about its design axis,PASS,1.0,1
+JNT-Shoulder-LINK,Joints,Shoulder connects A5_Arm to A3_Turntable_Shoulder,PASS,"['A3_Turntable_Shoulder', 'A5_Arm']","['A3_Turntable_Shoulder', 'A5_Arm']"
+JNT-Shoulder-AXIS,Joints,Shoulder rotates about its design axis,PASS,1.0,1
+JNT-Shoulder-LIMIT,Joints,Shoulder limits match the design,PASS,"[0.0, 120.0]","[0, 120]"
+JNT-Shoulder_Drive-LINK,Joints,Shoulder_Drive connects A4_Shoulder_Drive to A3_Turntable_Shoulder,PASS,"['A3_Turntable_Shoulder', 'A4_Shoulder_Drive']","['A3_Turntable_Shoulder', 'A4_Shoulder_Drive']"
+JNT-Shoulder_Drive-AXIS,Joints,Shoulder_Drive rotates about its design axis,PASS,1.0,1
+JNT-Head_Tilt-LINK,Joints,Head_Tilt connects A6_Head to A5_Arm,PASS,"['A5_Arm', 'A6_Head']","['A5_Arm', 'A6_Head']"
+JNT-Head_Tilt-AXIS,Joints,Head_Tilt rotates about its design axis,PASS,1.0,1
+JNT-Head_Tilt-LIMIT,Joints,Head_Tilt limits match the design,PASS,"[-30.0, 60.0]","[-30, 60]"
+JNT-Pod_Adjust-LINK,Joints,Pod_Adjust connects A7_Sensor_Pod to A6_Head,PASS,"['A6_Head', 'A7_Sensor_Pod']","['A6_Head', 'A7_Sensor_Pod']"
+JNT-Pod_Adjust-AXIS,Joints,Pod_Adjust rotates about its design axis,PASS,1.0,1
+JNT-Pod_Adjust-LIMIT,Joints,Pod_Adjust limits match the design,PASS,"[-25.0, 0.0]","[-25, 0]"
+SWP-Yaw--90,Joint motion,Yaw at -90°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Yaw--45,Joint motion,Yaw at -45°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Yaw-0,Joint motion,Yaw at 0°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Yaw-45,Joint motion,Yaw at 45°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Yaw-90,Joint motion,Yaw at 90°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Yaw-0,Joint motion,Yaw at 0°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Yaw-STOP,Joint limits,Yaw cannot be driven past its limits,PASS,"[{'commanded': -95, 'reached': 0.0, 'rejected': False}, {'commanded': 95, 'reached': 0.0, 'rejected': False}]","[-90, 90]"
+SWP-Shoulder-0,Joint motion,Shoulder at 0°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Shoulder-30,Joint motion,Shoulder at 30°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Shoulder-60,Joint motion,Shoulder at 60°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Shoulder-90,Joint motion,Shoulder at 90°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Shoulder-120,Joint motion,Shoulder at 120°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Shoulder-0,Joint motion,Shoulder at 0°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Shoulder-STOP,Joint limits,Shoulder cannot be driven past its limits,PASS,"[{'commanded': -5, 'reached': 0.0, 'rejected': False}, {'commanded': 125, 'reached': 0.0, 'rejected': False}]","[0, 120]"
+SWP-Head_Tilt--30,Joint motion,Head_Tilt at -30°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Head_Tilt--7.5,Joint motion,Head_Tilt at -7.5°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Head_Tilt-15,Joint motion,Head_Tilt at 15°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Head_Tilt-37.5,Joint motion,Head_Tilt at 37.5°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Head_Tilt-60,Joint motion,Head_Tilt at 60°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Head_Tilt-0,Joint motion,Head_Tilt at 0°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Head_Tilt-STOP,Joint limits,Head_Tilt cannot be driven past its limits,PASS,"[{'commanded': -35, 'reached': 0.0, 'rejected': False}, {'commanded': 65, 'reached': 0.0, 'rejected': False}]","[-30, 60]"
+SWP-Pod_Adjust--25,Joint motion,Pod_Adjust at -25°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Pod_Adjust--18.75,Joint motion,Pod_Adjust at -18.75°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Pod_Adjust--12.5,Joint motion,Pod_Adjust at -12.5°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Pod_Adjust--6.25,Joint motion,Pod_Adjust at -6.25°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Pod_Adjust-0,Joint motion,Pod_Adjust at 0°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Pod_Adjust--16,Joint motion,Pod_Adjust at -16°: all components at predicted positions,PASS,0.0,≤ 0.02 mm
+SWP-Pod_Adjust-STOP,Joint limits,Pod_Adjust cannot be driven past its limits,PASS,"[{'commanded': -30, 'reached': -16.0, 'rejected': False}, {'commanded': 5, 'reached': -16.0, 'rejected': False}]","[-25, 0]"
+SWP-COMBINED-35_70_-25_-10,Joint motion,"Combined pose yaw 35°, shoulder 70°, tilt -25°, pod -10°",PASS,0.0,≤ 0.02 mm
+SWP-COMBINED--75_105_40_-22,Joint motion,"Combined pose yaw -75°, shoulder 105°, tilt 40°, pod -22°",PASS,0.0,≤ 0.02 mm
+SWP-COMBINED-90_120_60_0,Joint motion,"Combined pose yaw 90°, shoulder 120°, tilt 60°, pod 0°",PASS,0.0,≤ 0.02 mm
+SWP-COMBINED--90_15_-30_-25,Joint motion,"Combined pose yaw -90°, shoulder 15°, tilt -30°, pod -25°",PASS,0.0,≤ 0.02 mm
+SWP-FIXED,Joint motion,Fixed base and rest-pose hose do not move with the joints,PASS,0.0,≤ 0.02 mm
+SWP-RETURN,Joint motion,"All components, including linked gears and pulleys, return in phase after combined motion",PASS,0.0,≤ 0.02 mm
+TRN-Yaw-LINK,Transmission,Yaw gear link exists and is healthy,PASS,True,True
+TRN-Shoulder-LINK,Transmission,Shoulder belt link exists and is healthy,PASS,True,True
+TRN-YAW-RATIO,Transmission,"Pinion turns 60/36 times yaw, in the opposite direction",PASS,-1.66667,-1.66667
+TRN-SHOULDER-RATIO,Transmission,"40T pulley turns 2.5 times shoulder, in the same direction",PASS,2.5,2.5
+TRN-TEETH-Yaw_Ring_Gear,Transmission,Yaw_Ring_Gear has 60 modeled teeth,PASS,60,60
+TRN-TEETH-Yaw_Pinion,Transmission,Yaw_Pinion has 36 modeled teeth,PASS,36,36
+TRN-TEETH-Driven_Pulley,Transmission,Driven_Pulley has 100 modeled teeth,PASS,100,100
+TRN-TEETH-Drive_Pulley,Transmission,Drive_Pulley has 40 modeled teeth,PASS,40,40
+TRN-GEAR-CENTER,Transmission,Gear center distance equals module × (z1 + z2) / 2,PASS,72.0,72.0
+TRN-BELT-LENGTH,Transmission,Exact belt path matches the 260 mm belt within 0.25 mm,PASS,260.066,260
+TRN-BELT-PITCH,Transmission,Both pulleys have a 2 mm tooth pitch,PASS,"[2.0, 2.0]",2
+TRN-BELT-CENTER,Transmission,Modeled pulley axes sit at the belt center distance,PASS,56.79,56.79
+TRN-GEAR-MESH,Transmission,Linked gear teeth do not overlap across a full tooth pitch,PASS,0,≤ 0.5 mm³
+TRN-BELT-Driven_Pulley,Transmission,Modeled belt band clears Driven_Pulley tooth tips,PASS,0.054,≥ 0 mm
+TRN-BELT-Drive_Pulley,Transmission,Modeled belt band clears Drive_Pulley tooth tips,PASS,0.054,≥ 0 mm
+TRN-BELT-TEETH,Transmission,Real belt-tooth engagement and tension,NOT TESTED,,
+TRN-DYNAMICS,Transmission,"Backlash, efficiency, belt stretch, and tooth loads",NOT TESTED,,
+COL-01,Collision,"No interference at yaw -90°, shoulder 0°, tilt -30°, pod -16°",PASS,0,0
+COL-02,Collision,"No interference at yaw -90°, shoulder 0°, tilt 0°, pod -16°",PASS,0,0
+COL-03,Collision,"No interference at yaw -90°, shoulder 0°, tilt 60°, pod -16°",PASS,0,0
+COL-04,Collision,"No interference at yaw -90°, shoulder 60°, tilt -30°, pod -16°",PASS,0,0
+COL-05,Collision,"No interference at yaw -90°, shoulder 60°, tilt 0°, pod -16°",PASS,0,0
+COL-06,Collision,"No interference at yaw -90°, shoulder 60°, tilt 60°, pod -16°",PASS,0,0
+COL-07,Collision,"No interference at yaw -90°, shoulder 120°, tilt -30°, pod -16°",PASS,0,0
+COL-08,Collision,"No interference at yaw -90°, shoulder 120°, tilt 0°, pod -16°",PASS,0,0
+COL-09,Collision,"No interference at yaw -90°, shoulder 120°, tilt 60°, pod -16°",PASS,0,0
+COL-10,Collision,"No interference at yaw 0°, shoulder 0°, tilt -30°, pod -16°",PASS,0,0
+COL-11,Collision,"No interference at yaw 0°, shoulder 0°, tilt 0°, pod -16°",PASS,0,0
+COL-12,Collision,"No interference at yaw 0°, shoulder 0°, tilt 60°, pod -16°",PASS,0,0
+COL-13,Collision,"No interference at yaw 0°, shoulder 60°, tilt -30°, pod -16°",PASS,0,0
+COL-14,Collision,"No interference at yaw 0°, shoulder 60°, tilt 0°, pod -16°",PASS,0,0
+COL-15,Collision,"No interference at yaw 0°, shoulder 60°, tilt 60°, pod -16°",PASS,0,0
+COL-16,Collision,"No interference at yaw 0°, shoulder 120°, tilt -30°, pod -16°",PASS,0,0
+COL-17,Collision,"No interference at yaw 0°, shoulder 120°, tilt 0°, pod -16°",PASS,0,0
+COL-18,Collision,"No interference at yaw 0°, shoulder 120°, tilt 60°, pod -16°",PASS,0,0
+COL-19,Collision,"No interference at yaw 90°, shoulder 0°, tilt -30°, pod -16°",PASS,0,0
+COL-20,Collision,"No interference at yaw 90°, shoulder 0°, tilt 0°, pod -16°",PASS,0,0
+COL-21,Collision,"No interference at yaw 90°, shoulder 0°, tilt 60°, pod -16°",PASS,0,0
+COL-22,Collision,"No interference at yaw 90°, shoulder 60°, tilt -30°, pod -16°",PASS,0,0
+COL-23,Collision,"No interference at yaw 90°, shoulder 60°, tilt 0°, pod -16°",PASS,0,0
+COL-24,Collision,"No interference at yaw 90°, shoulder 60°, tilt 60°, pod -16°",PASS,0,0
+COL-25,Collision,"No interference at yaw 90°, shoulder 120°, tilt -30°, pod -16°",PASS,0,0
+COL-26,Collision,"No interference at yaw 90°, shoulder 120°, tilt 0°, pod -16°",PASS,0,0
+COL-27,Collision,"No interference at yaw 90°, shoulder 120°, tilt 60°, pod -16°",PASS,0,0
+COL-28,Collision,"No interference at yaw 0°, shoulder 45°, tilt 0°, pod 0°",PASS,0,0
+COL-29,Collision,"No interference at yaw 0°, shoulder 45°, tilt 0°, pod -25°",PASS,0,0
+COL-30,Collision,"No interference at yaw 0°, shoulder 120°, tilt 60°, pod -25°",PASS,0,0
+COL-31,Collision,"No interference at yaw 0°, shoulder 0°, tilt 0°, pod -25°",PASS,0,0
+CLR-Arm_Left-Yoke_Left,Clearance,Arm_Left to Yoke_Left across shoulder 0–120°,PASS,2.0,≥ 0.5 mm
+CLR-Arm_Right-Yoke_Right,Clearance,Arm_Right to Yoke_Right across shoulder 0–120°,PASS,2.0,≥ 0.5 mm
+CLR-Arm_Left-Servo_Strap,Clearance,Arm_Left to Servo_Strap across shoulder 0–120°,PASS,3.081,≥ 0.5 mm
+CLR-Arm_Right-Shoulder_Servo,Clearance,Arm_Right to Shoulder_Servo across shoulder 0–120°,PASS,4.631,≥ 0.5 mm
+CLR-Arm_Left-Servo_Cradle,Clearance,Arm_Left to Servo_Cradle across shoulder 0–120°,PASS,6.675,≥ 0.5 mm
+CLR-Arm_Left-Turntable,Clearance,Arm_Left to Turntable across shoulder 0–120°,PASS,31.0,≥ 0.5 mm
+CLR-Arm_Hose_Clip-Shoulder_Cap_Left,Clearance,Arm_Hose_Clip to Shoulder_Cap_Left across shoulder 0–120°,PASS,85.795,≥ 0.5 mm
+CLR-Arm_Hose_Clip-Electronics_Bay,Clearance,Arm_Hose_Clip to Electronics_Bay across shoulder 0–120°,PASS,68.884,≥ 0.5 mm
+CLR-Arm_Hose_Clip-Yoke_Left,Clearance,Arm_Hose_Clip to Yoke_Left across shoulder 0–120°,PASS,77.0,≥ 0.5 mm
+CLR-Driven_Pulley-Belt_Guard,Clearance,Driven_Pulley to Belt_Guard across shoulder 0–120°,PASS,1.5,≥ 0.5 mm
+CLR-Driven_Pulley-Yoke_Right,Clearance,Driven_Pulley to Yoke_Right across shoulder 0–120°,PASS,1.0,≥ 0.5 mm
+CLR-Head_Left-Arm_Left,Clearance,Head_Left to Arm_Left across tilt -30° to +60°,PASS,2.0,≥ 0.5 mm
+CLR-Head_Right-Arm_Right,Clearance,Head_Right to Arm_Right across tilt -30° to +60°,PASS,2.0,≥ 0.5 mm
+CLR-Head_Right-Tilt_Servo,Clearance,Head_Right to Tilt_Servo across tilt -30° to +60°,PASS,3.5,≥ 0.5 mm
+CLR-Head_Hose_Port-Arm_Left,Clearance,Head_Hose_Port to Arm_Left across tilt -30° to +60°,PASS,14.55,≥ 0.5 mm
+CLR-Sensor_Bracket-Arm_Left,Clearance,Sensor_Bracket to Arm_Left across tilt -30° to +60°,PASS,13.161,≥ 0.5 mm
+CLR-Head_Top_Plate-Arm_Left,Clearance,Head_Top_Plate to Arm_Left across tilt -30° to +60°,PASS,8.571,≥ 0.5 mm
+CLR-Turntable-Base_Cover,Clearance,Turntable to Base_Cover across yaw ±90°,PASS,2.0,≥ 0.5 mm
+CLR-Electronics_Bay-Hose_Support_Post,Clearance,Electronics_Bay to Hose_Support_Post across yaw ±90°,PASS,30.146,≥ 0.5 mm
+CLR-Platform_Hose_Clip-Hose_Support_Post,Clearance,Platform_Hose_Clip to Hose_Support_Post across yaw ±90°,PASS,47.825,≥ 0.5 mm
+CLR-Servo_Cradle-Hose_Support_Post,Clearance,Servo_Cradle to Hose_Support_Post across yaw ±90°,PASS,40.223,≥ 0.5 mm
+CLR-Yaw_Ring_Gear-Yaw_Servo_Strap,Clearance,Yaw_Ring_Gear to Yaw_Servo_Strap across yaw ±90°,PASS,9.99,≥ 0.5 mm
+CLR-Yaw_Ring_Gear-Base_Cover,Clearance,Yaw_Ring_Gear to Base_Cover across yaw ±90°,PASS,5.0,≥ 0.5 mm
+CLR-Sensor_Pod-Barrel_Shroud,Clearance,Sensor_Pod to Barrel_Shroud across pod 0–25°,PASS,0.848,≥ 0.5 mm
+CLR-Sensor_Pod-Head_Right,Clearance,Sensor_Pod to Head_Right across pod 0–25°,PASS,2.626,≥ 0.5 mm
+CLR-Sensor_Pod-Head_Left,Clearance,Sensor_Pod to Head_Left across pod 0–25°,PASS,2.626,≥ 0.5 mm
+CLR-Sensor_Pod-Sensor_Bracket,Clearance,Sensor_Pod to Sensor_Bracket across pod 0–25°,PASS,0.5,≥ 0.5 mm
+DSK-01,Clearance,"Sampled arm, head and pod clear the desk",PASS,28.393,≥ 5 mm
+HOS-REST,Hose,Modeled hose has no unintended interference in the rest pose,PASS,0,0
+HOS-LEN-Hose_Service_Loop,Hose,Yaw service loop is longer than its farthest clip distance,PASS,90.9,< 100% of length
+HOS-LEN-Hose_Shoulder_Loop,Hose,Shoulder loop is longer than its farthest clip distance,PASS,94.3,< 100% of length
+HOS-LEN-Hose_Tilt_Loop,Hose,Tilt loop is longer than its farthest clip distance,PASS,85.4,< 100% of length
+HOS-FLEX,Hose,Hose collision-free through motion,NOT TESTED,,
+MAS-MATERIAL,Mass,Each printed body carries a PETG physical material,PASS,[],All printed bodies PETG
+INT-POSE,Integrity,Every component returned to its starting position,PASS,0.0,≤ 0.02 mm
+INT-PARAM,Integrity,No parameter was changed,PASS,0,0
+INT-TIMELINE,Integrity,No timeline feature was added or removed,PASS,697,697
+INT-GEOMETRY,Integrity,No component volume changed,PASS,0,0

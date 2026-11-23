@@ -7,146 +7,1235 @@
       name="description"
       content="The software, robotics, and engineering portfolio of Zakary Miles."
     />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#141618" />
     <title>Zakary Miles — Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="portfolio-data.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="script.js?v=hardware-first" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Back to top" data-site-name>Zakary Miles</a>
+      <a class="brand" href="#top" aria-label="Zakary Miles, portfolio home">ZM</a>
       <nav aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
+        <a href="#projects" aria-current="page">Projects</a>
+        <a href="#reports">Reports</a>
         <a href="#resume">Resume</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="header-contact" href="#contact">Contact</a>
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="intro-heading">
-        <div class="hero-copy">
-          <p class="eyebrow" data-role>Computer Science · Software · Robotics</p>
-          <h1 id="intro-heading">Zakary<br />Miles.</h1>
-          <p class="hero-summary" data-intro>
-            Computer Science student building full-stack software, data systems,
-            and autonomous hardware.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View projects</a>
-            <a class="text-link" href="#work">Work experience</a>
-          </div>
-        </div>
-      </section>
+      <div id="projects" data-page="projects">
+        <section class="hero" id="portfolio-home" aria-labelledby="intro-heading">
+          <h1 id="intro-heading" tabindex="-1" data-site-name>Zakary Miles</h1>
+          <p class="hero-summary" data-intro>Computer Science at University of California, Santa Cruz</p>
+        </section>
 
-      <section class="section" id="work" aria-labelledby="work-heading">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Experience</p>
-            <h2 id="work-heading">Work</h2>
-          </div>
-          <p>Engineering, data operations, and hands-on technical work.</p>
-        </div>
-        <div class="work-list" id="work-list"></div>
-      </section>
-
-      <section class="section" id="projects" aria-labelledby="projects-heading">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Selected work</p>
+        <section class="projects-section" aria-labelledby="projects-heading">
+          <div class="projects-heading">
             <h2 id="projects-heading">Projects</h2>
+            <div class="project-tabs" role="tablist" aria-label="Project categories">
+              <button
+                class="project-tab is-active"
+                id="hardware-tab"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="hardware-panel"
+                data-project-tab="hardware"
+              >Hardware</button>
+              <button
+                class="project-tab"
+                id="software-tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="software-panel"
+                data-project-tab="software"
+              >Software</button>
+              <button
+                class="project-tab"
+                id="random-tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="random-panel"
+                data-project-tab="random"
+              >Random</button>
+            </div>
           </div>
-          <p>Software platforms and physical systems built from the ground up.</p>
-        </div>
 
-        <div class="project-tabs" role="tablist" aria-label="Project categories">
-          <button
-            class="project-tab is-active"
-            id="software-tab"
-            type="button"
-            role="tab"
-            aria-selected="true"
-            aria-controls="software-panel"
-            data-project-tab="software"
-          >Software</button>
-          <button
-            class="project-tab"
-            id="hardware-tab"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            aria-controls="hardware-panel"
-            data-project-tab="hardware"
-          >Hardware</button>
-        </div>
+          <div
+            class="project-panel"
+            id="hardware-panel"
+            role="tabpanel"
+            aria-labelledby="hardware-tab"
+            data-project-panel="hardware"
+          >
+            <div class="project-grid" id="hardware-projects"></div>
+          </div>
+          <div
+            class="project-panel"
+            id="software-panel"
+            role="tabpanel"
+            aria-labelledby="software-tab"
+            data-project-panel="software"
+            hidden
+          >
+            <div class="project-grid" id="software-projects"></div>
+          </div>
+          <div
+            class="project-panel"
+            id="random-panel"
+            role="tabpanel"
+            aria-labelledby="random-tab"
+            data-project-panel="random"
+            tabindex="0"
+            hidden
+          >
+            <p class="project-description">Here’s some stuff I build for fun and a few things I fix along the way.</p>
+            <ul class="repair-list">
+              <li>
+                <a href="project-assets/random/audi-turbo.webp" aria-label="View the CTS turbo photo"><img src="project-assets/random/audi-turbo.webp" width="863" height="1152" alt="Close-up of the CTS turbo on the Audi engine." loading="lazy"></a>
+                <div>
+                  <h3>Audi A4 turbo swap</h3>
+                  <p>Swapped out my friend’s OEM turbo for a bigger CTS turbo kit on his 2011 2.0T Audi B8 to make more boost and power on his built block.</p>
+                </div>
+              </li>
+              <li>
+                <a href="project-assets/random/fish-scale.webp" aria-label="View the fish scale circuit board photo"><img src="project-assets/random/fish-scale.webp" width="1152" height="847" alt="The opened fish scale with its circuit board and wires exposed." loading="lazy"></a>
+                <div>
+                  <h3>Digital fish grip scale repair</h3>
+                  <p>My fish scale wouldn’t turn on, so I opened it up. The wires had broken off the circuit board, and I soldered them back on.</p>
+                </div>
+              </li>
+              <li>
+                <a href="project-assets/random/canon-g7x.webp" aria-label="View the Canon camera teardown photo"><img src="project-assets/random/canon-g7x.webp" width="863" height="1152" alt="Canon camera, lens assembly, housing pieces, and circuit board laid out on a workbench." loading="lazy"></a>
+                <div>
+                  <h3>Canon G7 X Mark II repair</h3>
+                  <p>I dropped my G7 X Mark II off a balcony and ended up replacing the lens assembly, housing, and flash.</p>
+                </div>
+              </li>
+              <li>
+                <a href="project-assets/random/prius-gasket.webp" aria-label="View the worn edge of the Prius head gasket"><img src="project-assets/random/prius-gasket.webp" width="768" height="1024" alt="Removed head gasket with a small strip of coating worn away at the edge of a cylinder opening." loading="lazy"></a>
+                <div>
+                  <h3>2011 Prius head gasket</h3>
+                  <p>I tore down the engine in a 2011 Prius to replace the head gasket, all because of that tiny patch of missing coating on the edge. Annoying job, but I still had fun.</p>
+                </div>
+              </li>
+              <li>
+                <a href="project-assets/random/sti-clutch.webp" aria-label="View the STI clutch photo"><img src="project-assets/random/sti-clutch.webp" width="863" height="1152" alt="Purple clutch pressure plate on the STI, viewed from underneath with the transmission out." loading="lazy"></a>
+                <div>
+                  <h3>WRX STI clutch replacement</h3>
+                  <p>One too many launches burned up the clutch in my STI, so I replaced it with a heavier Stage 3 racing clutch.</p>
+                </div>
+              </li>
+              <li>
+                <div class="repair-photo-pair">
+                  <a href="project-assets/random/ford-tow-mirror.webp" aria-label="View the tow mirror on the F-250"><img src="project-assets/random/ford-tow-mirror.webp" width="1280" height="773" alt="Side view of the blue F-250 with the vertical tow mirror mounted on the driver’s door." loading="lazy"></a>
+                  <a href="project-assets/random/ford-mirror-bracket.webp" aria-label="View the swing-lock bracket up close"><img src="project-assets/random/ford-mirror-bracket.webp" width="665" height="1184" alt="Swing-lock bracket extending from two door mounts to the back of the rectangular mirror." loading="lazy"></a>
+                </div>
+                <div>
+                  <h3>F-250 tow mirror retrofit</h3>
+                  <p>I drilled the F-250’s door panel for an old swing-lock bracket, then modified the bracket to hold a vertical tow mirror from a ’70s Ford.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
 
-        <div
-          class="project-panel"
-          id="software-panel"
-          role="tabpanel"
-          aria-labelledby="software-tab"
-          data-project-panel="software"
-        >
-          <div class="project-grid" id="software-projects"></div>
-        </div>
-        <div
-          class="project-panel"
-          id="hardware-panel"
-          role="tabpanel"
-          aria-labelledby="hardware-tab"
-          data-project-panel="hardware"
-          hidden
-        >
-          <div class="project-grid" id="hardware-projects"></div>
+      <section id="reports" data-page="reports" aria-labelledby="reports-heading" hidden>
+        <header class="reports-header"><h1 id="reports-heading" tabindex="-1">Engineering reports</h1></header>
+        <div class="report-list">
+          <article id="reports/sti-aero" class="report-entry" aria-labelledby="sti-aero-entry-title">
+            <p class="report-meta">SolidWorks Flow Simulation · Fabricated in ABS</p>
+            <h2 id="sti-aero-entry-title" tabindex="-1">2015 Subaru WRX STI front aero</h2>
+            <p class="report-description">Designing a splitter and stacked canards, comparing three configurations at 70 mph, and fitting the parts to my bumper.</p>
+            <a class="read-report" href="#report-sti-aero" aria-label="Read the STI front aero report">Read full report →</a>
+          </article>
+          <article id="reports/dum-e" class="report-entry" aria-labelledby="dum-e-entry-title">
+            <p class="report-meta">Digital prototype · Fusion v7 validation</p>
+            <h2 id="dum-e-entry-title" tabindex="-1">DUM-E</h2>
+            <p class="report-description">How the desk robot’s shoulder drive, sensor packaging and motion limits were sized and checked in CAD.</p>
+            <ul class="project-stack" aria-label="Tools and methods"><li>Autodesk Fusion</li><li>FreeCAD</li><li>Embedded controls</li></ul>
+            <a class="read-report" href="#report-dum-e" aria-label="Read full report → DUM-E">Read full report →</a>
+          </article>
+          <article id="reports/bike-rack" class="report-entry" aria-labelledby="bike-rack-entry-title">
+            <p class="report-meta">Solo design study · Static analysis complete</p>
+            <h2 id="bike-rack-entry-title" tabindex="-1">Campus trolley bike rack</h2>
+            <p class="report-description">How two bicycles load a welded trolley rack, and why its 279 lb modeled weight changes the mounting decision.</p>
+            <ul class="project-stack" aria-label="Tools and methods"><li>SOLIDWORKS</li><li>Finite element analysis</li><li>Beam calculations</li></ul>
+            <a class="read-report" href="#report-bike-rack" aria-label="Read full report → Campus trolley bike rack">Read full report →</a>
+          </article>
+          <article id="reports/xcelsior" class="report-entry" aria-labelledby="xcelsior-entry-title">
+            <p class="report-meta">Built and deployed · May–July 2026</p>
+            <h2 id="xcelsior-entry-title" tabindex="-1">Xcelsior</h2>
+            <p class="report-description">Turning public job postings into skill-demand estimates and traceable resume matches, including a false signal caught in the hiring data.</p>
+            <ul class="project-stack" aria-label="Tools and methods"><li>FastAPI</li><li>PostgreSQL</li><li>React</li><li>Information extraction</li></ul>
+            <a class="read-report" href="#report-xcelsior" aria-label="Read full report → Xcelsior">Read full report →</a>
+          </article>
+          <article id="reports/mediaflow" class="report-entry" aria-labelledby="mediaflow-entry-title">
+            <p class="report-meta">Built and tested locally · <time datetime="2026-08">August 2026</time> version</p>
+            <h2 id="mediaflow-entry-title" tabindex="-1">MediaFlow</h2>
+            <p class="report-description">How a file moves from an upload to a downloadable conversion, and what happens when a worker stops, a transfer fails, or the user cancels.</p>
+            <ul class="project-stack" aria-label="Tools and methods"><li>FastAPI</li><li>PostgreSQL</li><li>FFmpeg</li><li>Object storage</li></ul>
+            <a class="read-report" href="#report-mediaflow" aria-label="Read full report → MediaFlow">Read full report →</a>
+          </article>
         </div>
       </section>
 
-      <section class="section about-section" id="about" aria-labelledby="about-heading">
-        <div>
-          <p class="eyebrow">Background</p>
-          <h2 id="about-heading">About me</h2>
+      <section id="resume" data-page="resume" aria-labelledby="resume-heading" hidden>
+        <header class="page-heading"><h1 id="resume-heading" tabindex="-1">Resume</h1></header>
+        <div class="work-resume">
+          <section aria-labelledby="education-heading">
+            <h2 id="education-heading">Education</h2>
+            <h3>University of California, Santa Cruz</h3>
+            <ul class="resume-bullets">
+              <li>Bachelor of Science in Computer Science</li>
+              <li>Expected graduation in June 2027</li>
+            </ul>
+          </section>
+          <section aria-labelledby="experience-heading">
+            <h2 id="experience-heading" tabindex="-1">Work experience</h2>
+            <div class="work-list" id="work-list"></div>
+          </section>
+          <section aria-labelledby="resume-projects-heading">
+            <h2 id="resume-projects-heading">Projects</h2>
+            <div id="resume-projects"></div>
+          </section>
+          <section aria-labelledby="resume-skills-heading">
+            <h2 id="resume-skills-heading">Skills</h2>
+            <div class="skill-groups" data-skills></div>
+          </section>
+          <a class="resume-link" href="assets/Zakary-Miles-Resume.pdf" target="_blank" rel="noopener">Open resume (PDF)</a>
         </div>
+      </section>
+
+      <section id="about" data-page="about" aria-labelledby="about-heading" hidden>
+        <header class="page-heading"><h1 id="about-heading" tabindex="-1">About me</h1></header>
         <div class="about-copy">
           <p data-about></p>
-          <div class="skill-groups" id="skill-groups"></div>
+          <h2>Technical skills</h2>
+          <div class="skill-groups" data-skills></div>
         </div>
       </section>
 
-      <section class="section resume-section" id="resume" aria-labelledby="resume-heading">
-        <div>
-          <p class="eyebrow">Full details</p>
-          <h2 id="resume-heading">Resume</h2>
-        </div>
-        <div class="resume-copy">
-          <p>
-            Education, experience, projects, and technical skills in one place.
-          </p>
-          <div class="resume-actions">
-            <a
-              class="button button-primary"
-              href="assets/Zakary-Miles-Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >Open resume</a>
-            <a class="text-link" href="assets/Zakary-Miles-Resume.pdf" download>Download PDF</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
-        <p class="eyebrow">Get in touch</p>
-        <h2 id="contact-heading">Let’s build something.</h2>
+      <section id="contact" data-page="contact" aria-labelledby="contact-heading" hidden>
+        <header class="page-heading"><h1 id="contact-heading" tabindex="-1">Contact</h1></header>
         <a class="contact-email" href="mailto:zjmiles01@gmail.com" data-email-link>
           zjmiles01@gmail.com
         </a>
         <div class="contact-links">
           <a href="https://linkedin.com/in/zakarymiles" data-linkedin-link>LinkedIn</a>
           <a href="https://github.com/zjmiles01" data-github-link>GitHub</a>
-          <a href="assets/Zakary-Miles-Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
         </div>
       </section>
+      <article class="report-view" data-page="reports" id="report-sti-aero" aria-labelledby="sti-aero-title" hidden>
+        <a class="back-to-reports" href="#hardware-panel">← Back to hardware projects</a>
+        <header class="report-intro">
+          <h1 id="sti-aero-title" tabindex="-1">Designing front aero for my 2015 WRX STI</h1>
+          <p class="report-byline">Zakary Miles</p>
+          <img class="sti-cover-photo" src="project-assets/sti-aero/installed.webp" width="1270" height="1188" alt="My 2015 WRX STI with the full-width ABS splitter and stacked canards fitted to the front bumper.">
+          <p class="report-overview">I was getting my 2015 Subaru WRX STI ready for the track, so I decided to design and build my own front aero. I modeled the look I wanted in SolidWorks, with a wide splitter and two sharp, Varis-inspired canards at each corner. Then I used Flow Simulation to see how much front downforce I could gain with that shape and what it would cost in drag.</p>
+        </header>
+        <div class="report-layout">
+          <aside class="report-sidebar">
+            <details class="contents-menu" open>
+              <summary>Contents</summary>
+              <nav aria-label="STI front aero table of contents" class="manuscript-contents">
+                <a href="#sti-design">Designing around the bumper</a>
+                <a href="#sti-flow">Flow testing at 70 mph</a>
+                <a href="#sti-pressure">Centerline pressure</a>
+                <a href="#sti-fit">Cutting and fitting the ABS</a>
+                <a href="#sti-installed">On the car</a>
+                <a href="#sti-drawings">Dimensioned drawings</a>
+              </nav>
+            </details>
+          </aside>
+          <div class="manuscript">
+            <section id="sti-design">
+              <h2 tabindex="-1">Designing around the bumper</h2>
+              <p>I started with a 75 in (1,905 mm) tape measurement under the car to set the nominal splitter width. The existing lip drops 1.5 in (38.1 mm) below the bumper. In CAD I placed the splitter 105 mm above the road and its leading edge 61 mm ahead of the lip at the centerline. Those two estimates set the gap under the splitter and how much of it projects into the airflow.</p>
+              <figure>
+                <img src="project-assets/sti-aero/cad-assembly.webp" width="1440" height="1080" alt="SolidWorks three-quarter view of the complete STI model with the splitter and canards around the front bumper." loading="lazy">
+                <figcaption>I scaled the STI exterior to its 2,650 mm wheelbase and used it to position the aero around the nose.</figcaption>
+              </figure>
+              <p>I traced the upper canard from a high-angle photo of my bumper. It has a short, straight front edge, a clipped corner below the fog light, and an upturned outer edge toward the wheel. The lower blade follows the same outline with a slightly larger footprint. I estimated a nose-down pitch of 16° for the upper blade and 15° for the lower one from the available photos.</p>
+              <figure>
+                <img src="project-assets/sti-aero/cad-detail.webp" width="1480" height="1110" alt="SolidWorks close-up of the two canards stacked above the splitter and its upright endplate." loading="lazy">
+                <figcaption>At the bumper corner, the two blades follow the bodywork. The taller outer plate belongs to the splitter below them.</figcaption>
+              </figure>
+            </section>
+            <section id="sti-flow">
+              <h2 tabindex="-1">Flow testing at 70 mph</h2>
+              <p>I ran the same simplified STI model with steady airflow straight ahead at 70 mph (31.3 m/s). I started with the lip alone, added the splitter and endplates, then added the stacked canards. Each result is the mean of the final 20 recorded iterations.</p>
+              <div class="trio">
+                <figure>
+                  <img src="project-assets/sti-aero/model-baseline.webp" width="840" height="618" alt="Front view of the simulation model with the existing lip alone." loading="lazy">
+                  <figcaption>Lip only</figcaption>
+                </figure>
+                <figure>
+                  <img src="project-assets/sti-aero/model-splitter.webp" width="840" height="618" alt="Front view with the splitter and upright endplates extending beyond the lip." loading="lazy">
+                  <figcaption>Splitter and endplates</figcaption>
+                </figure>
+                <figure>
+                  <img src="project-assets/sti-aero/model-canards.webp" width="840" height="618" alt="Front view with two additional blades at each bumper corner." loading="lazy">
+                  <figcaption>Stacked canards added</figcaption>
+                </figure>
+              </div>
+              <h3>Test conditions</h3>
+              <p>I used zero yaw, 101,325 Pa ambient pressure, and a temperature of 293.15 K. The model had a simplified underbody and four stationary tires. The computational domain extended from −7 to 7 m laterally, from −0.05 to 8 m vertically, and from −27 to 12 m along the forward axis.</p>
+              <p>All three runs used the same Boolean mesh setting and nominal mesh level 2, producing 174,207 to 174,262 fluid cells. I integrated pressure and shear over the vehicle and aero surfaces, excluding the stationary road. I used the pitching moment about the point on the road below the front axle and the 2,650 mm wheelbase to calculate equivalent front and rear axle loads.</p>
+              <h3>Force results</h3>
+              <div class="table-scroll">
+                <table>
+                  <caption>Predicted aerodynamic forces in newtons. Positive lift acts upward.</caption>
+                  <thead><tr><th scope="col">Configuration</th><th scope="col">Drag</th><th scope="col">Total lift</th><th scope="col">Front-axle lift</th><th scope="col">Rear-axle lift</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Lip only</th><td>411.1</td><td>+121.3</td><td>−20.4</td><td>+141.7</td></tr>
+                    <tr><th scope="row">With splitter and endplates</th><td>430.9</td><td>+58.8</td><td>−119.1</td><td>+177.9</td></tr>
+                    <tr><th scope="row">With stacked canards added</th><td>428.8</td><td>+59.7</td><td>−118.3</td><td>+177.9</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>The splitter and endplates added 98.7 N of predicted front downforce and 19.8 N of drag. Adding the canards reduced modeled drag by about 2 N and changed front-axle lift by just +0.8 N. The splitter accounted for nearly all the change in front loading. With one speed and one mesh setting, uncertainties in bumper fit, ride height, and mesh resolution limit what I can conclude about the smaller canard effect.</p>
+            </section>
+            <section id="sti-pressure">
+              <h2 tabindex="-1">Centerline pressure</h2>
+              <p>These sections cut through the middle of the car. SolidWorks scaled the color legend separately for each run. The color bands show where pressure changes within a run. The force table above gives the numerical comparison across runs.</p>
+              <figure>
+                <img src="project-assets/sti-aero/pressure-baseline.webp" width="1355" height="534" alt="SolidWorks centerline static-pressure plot for the lip-only baseline, with its pressure legend." loading="lazy">
+                <figcaption>Lip-only baseline</figcaption>
+              </figure>
+              <figure>
+                <img src="project-assets/sti-aero/pressure-splitter.webp" width="1355" height="534" alt="Centerline static-pressure plot for the splitter and endplates, with its pressure legend." loading="lazy">
+                <figcaption>Splitter and endplates</figcaption>
+              </figure>
+              <figure>
+                <img src="project-assets/sti-aero/pressure.webp" width="1355" height="534" alt="SolidWorks centerline static-pressure plot for the STI with the splitter, endplates, and stacked canards." loading="lazy">
+                <figcaption>Splitter, endplates, and stacked canards</figcaption>
+              </figure>
+            </section>
+            <section id="sti-fit">
+              <h2 tabindex="-1">Cutting and fitting the ABS</h2>
+              <p>I transferred the CAD dimensions to ABS sheet, cut the parts with a rotary cutter, and sanded the edges. I held each piece against my bumper to check the fit, then trimmed and sanded the places that needed a little more clearance. Each canard sits on an L-bracket with one leg bolted to the bumper and the other supporting the blade from below. Inboard angle brackets join the endplates to the splitter.</p>
+              <div class="duo">
+                <figure>
+                  <img src="project-assets/sti-aero/endplate-drawing.webp" width="1419" height="569" alt="Dimensioned CAD endplate profile, 415.9 mm along the base and 136.5 mm tall at the wheel end." loading="lazy">
+                  <figcaption>The endplate drawing gives the base length and the taper toward the front.</figcaption>
+                </figure>
+                <figure>
+                  <img src="project-assets/sti-aero/endplate-measurement.webp" width="1480" height="833" alt="Tape measure along the bottom edge of the installed ABS endplate next to the front tire." loading="lazy">
+                  <figcaption>The same profile on my car, with the tape along the base and the taller end next to the wheel.</figcaption>
+                </figure>
+              </div>
+            </section>
+            <section id="sti-installed">
+              <h2 tabindex="-1">On the car</h2>
+              <div class="duo">
+                <figure>
+                  <img src="project-assets/sti-aero/bumper-detail.webp" width="1165" height="1385" alt="Close-up looking down on the two ABS canards, their outer edges, and the splitter below the fog light." loading="lazy">
+                  <figcaption>The finished bumper corner shows the gap between the two blades and where the lower one meets the outline of the splitter.</figcaption>
+                </figure>
+                <figure>
+                  <img src="project-assets/sti-aero/garage.webp" width="601" height="617" alt="Front of the STI in the garage with the assembled splitter spanning both bumper corners." loading="lazy">
+                  <figcaption>Garage view of the splitter extending across the nose beneath the original lip.</figcaption>
+                </figure>
+                <figure>
+                  <img src="project-assets/sti-aero/curbside.webp" width="601" height="701" alt="Opposite front three-quarter view of the car parked near a curb." loading="lazy">
+                  <figcaption>The opposite corner shows how the splitter sits relative to the front wheel and side skirt.</figcaption>
+                </figure>
+              </div>
+              <figure id="sti-video">
+                <video controls playsinline preload="none" width="720" height="1280"
+                  poster="project-assets/sti-aero/drive-by.webp" aria-labelledby="sti-video-caption">
+                  <source src="project-assets/sti-aero/drive-by.mp4" type="video/mp4">
+                </video>
+                <figcaption id="sti-video-caption">My STI turns toward the camera and passes below it, bringing the splitter into view. <a href="project-assets/sti-aero/drive-by.mp4" download>Download the clip (MP4, 5.5 s)</a></figcaption>
+              </figure>
+            </section>
+            <section id="sti-drawings">
+              <h2 tabindex="-1">Dimensioned drawings</h2>
+              <p>All dimensions are in millimeters. The notes identify which dimensions came from tape measurements, photographs, or CAD estimates. Select a drawing to see the dimension lines at full size.</p>
+              <h3>Front splitter plate</h3>
+              <p>The 1,905 mm width comes from the tape run beneath the car. The separate 420–430 mm measurement follows the bumper corner. I modeled the rear overlap and the 6.35 mm plate thickness. The drawing leaves the final rear profile and fastener positions for fitment on the car.</p>
+              <figure class="drawing-plate">
+                <a href="project-assets/sti-aero/drawing-splitter.webp" aria-label="Open the full-size front splitter drawing"><img src="project-assets/sti-aero/drawing-splitter.webp" width="3096" height="2189" alt="Dimensioned splitter plan and edge views showing a nominal width of 1,905 mm and modeled thickness of 6.35 mm." loading="lazy"></a>
+              </figure>
+              <h3>Endplate and angle bracket</h3>
+              <p>The tape measurements were about 416 mm along the base, 340 mm along the top, and 137 mm high near the wheel. The forward station measured 92–95 mm high. The CAD sheet shows the tapered profile, a 5 mm endplate, and the estimated 3 mm wall of the bracket that sits inboard on the splitter.</p>
+              <figure class="drawing-plate">
+                <a href="project-assets/sti-aero/drawing-endplate.webp" aria-label="Open the full-size endplate and bracket drawing"><img src="project-assets/sti-aero/drawing-endplate.webp" width="3096" height="2189" alt="Dimensioned endplate and bracket views showing the 415.9 mm base and the 254 mm bracket with 32 and 24 mm legs." loading="lazy"></a>
+              </figure>
+              <h3>Canards and bumper brackets</h3>
+              <p>I drew the left upper and lower blades from the bumper photos and mirrored them for the right side. The drawing uses 4 mm sheet for the blades, 3.2 mm sheet for their outer walls, and one 3 mm-wall L-bracket under each blade. The bracket dimensions and blade angles are estimates from the photographs.</p>
+              <figure class="drawing-plate">
+                <a href="project-assets/sti-aero/drawing-canards.webp" aria-label="Open the full-size canards and brackets drawing"><img src="project-assets/sti-aero/drawing-canards.webp" width="3096" height="2189" alt="Dimensioned views of the left upper and lower canards, their upturned outer walls, and the L-bracket used under each blade." loading="lazy"></a>
+              </figure>
+            </section>
+          </div>
+        </div>
+        <div class="report-end"><a class="back-to-reports" href="#reports/sti-aero">← Back to reports</a></div>
+      </article>
+
+      <article class="report-view" data-page="reports" id="report-dum-e" aria-labelledby="report-dum-e-title" hidden>
+        <a class="back-to-reports" href="#reports/dum-e">← Back to reports</a>
+        <header class="report-intro">
+          <p class="report-meta">DUM-E · Digital prototype · Fusion v7 validation</p>
+          <h1 id="report-dum-e-title" tabindex="-1">Design and verification of a three-axis desktop robot</h1>
+          <p class="report-byline">Zakary Miles</p>
+          <p class="report-overview">I designed a three-axis robot to reach 425 mm from a fixed desk mount while keeping its sensor head clear of the surface. A collision at the original lower tilt limit drove a joint-limit revision. The saved Fusion assembly passed 142 digital checks, with three physical checks outstanding. The shoulder meets its torque-margin target at nominal print mass and falls below target in the solid-print scenario.</p>
+        </header>
+        <div class="report-layout">
+          <aside class="report-sidebar">
+            <details class="contents-menu" open>
+              <summary>Contents</summary>
+              <nav aria-label="DUM-E table of contents" class="manuscript-contents">
+                <a href="#dum-e-brief">Design targets and how to check them</a>
+                <a href="#dum-e-assembly">How the assembly fits together</a>
+                <a href="#dum-e-drawings">Key dimensions in the model</a>
+                <a href="#dum-e-drives">Three axes, three drive choices</a>
+                <a href="#dum-e-loads">Why the shoulder uses a belt reduction</a>
+                <a href="#dum-e-motion">Reading the joint motion</a>
+                <a href="#dum-e-electronics">Where the boards go</a>
+                <a href="#dum-e-electrical">Three paths through the robot</a>
+                <a href="#dum-e-evidence">Keeping the head above the desk</a>
+                <a href="#dum-e-verification">What passed, and under what conditions</a>
+                <a href="#dum-e-plan-design">From brief to validated CAD</a>
+                <a href="#dum-e-plan-build">From CAD to a bench prototype</a>
+                <a href="#dum-e-bench">What would qualify the first prototype</a>
+                <a href="#dum-e-record">Native validation register</a>
+                <a href="#dum-e-conclusion">Conclusion and source records</a>
+                <a href="#dum-e-plates">Appendix · Fusion model views and dimensions</a>
+              <a href="#dum-e-fusion-drawings">Appendix · Fusion assembly drawings</a></nav>
+            </details>
+          </aside>
+          <div class="manuscript">
+        <section id="dum-e-brief">
+          <h2 tabindex="-1">Design targets and how to check them</h2>
+          <p class="intro">The requirements fix the robot’s working envelope and establish what evidence would support a physical build.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Requirement</th>
+                  <th scope="col">Design target</th>
+                  <th scope="col">Evidence and next check</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Desk installation</th>
+                  <td>220 × 260 mm plate with positive anchorage</td>
+                  <td>CAD defines the footprint. Clamp geometry and desk capacity require measurement.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Motion and reach</th>
+                  <td>±90° yaw, 0–120° shoulder, −30° to +60° tilt</td>
+                  <td>Fusion checks joint limits and linked motion. Use independent angle measurements to establish physical repeatability.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Clearance</th>
+                  <td>At least 5 mm between the moving assembly and desk</td>
+                  <td>Compare the lowest sampled geometry with the requirement. Repeat a supported hand sweep with actual wiring and hose.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Shoulder capacity</th>
+                  <td>At least 1.5× rated-torque margin in the sizing study</td>
+                  <td>Calculated margin depends on print mass and servo rating. Weigh the moving parts and repeat the load calculation.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Board access</th>
+                  <td>Fit the UNO, Pi and two head sensors with serviceable connections</td>
+                  <td>CAD reserves component volume. Trial-fit connectors, board retention and flex routing before an integrated build.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="rulebox">
+            <h3>Design records</h3>
+            <p>Dimensions are in millimetres. Fusion v7 supplies the native motion and material results. The photographs show the saved Fusion v7 model. Dimensions are nominal design values. The wiring architecture is a proposed bench design.</p>
+          </div>
+          <figure class="native-photo"><img data-provenance='{"file":"01_iso.png","crop":null,"sha256":"76d27e0997c48181bc33002725c1eba01eeb53547b9146fd797b0f5399c67bea"}' src="project-assets/dum-e/fusion-parked.png" width="1920" height="1080" alt="The parked assembly, with the sensor head above the desk." data-capture="01_iso.png"><figcaption>Fig. 1. Parked assembly, seen from the sensor side. Autodesk Fusion v7.</figcaption></figure></section>
+        <section id="dum-e-assembly">
+          <h2 tabindex="-1">How the assembly fits together</h2>
+          <p class="intro">Follow the load from the head through the shoulder shaft, into the yaw bearings, and down to the steel base plate.</p>
+          <figure class="native-photo"><img data-provenance='{"file":"exploded.png","crop":null,"sha256":"3a99567f3800a4f6ad3a47d6067b8e4cf0709bfef4d28256590d565c3b12901b"}' src="project-assets/dum-e/fusion-exploded.png" width="2560" height="1440" alt="Exploded Fusion view of the DUM-E assembly." data-capture="exploded.png"><figcaption>Fig. 2. Exploded assembly from Fusion v7. From the base plate upward, the separated parts show the yaw drive, shoulder supports and arm. The sensor pod sits below the head. The view omits grouped fasteners and the flexible hose. <a href="project-assets/dum-e/fusion-exploded.png" class="web-only">Open the full-resolution capture</a></figcaption></figure><div class="duo notes">
+            <div>
+              <h3>Access sets the assembly order</h3>
+              <p>The lower yaw bearing and retainer go together while the underside is accessible. The base cover fits over the hub before the larger turntable is attached.</p>
+            </div>
+            <div>
+              <h3>The head closes around the shroud</h3>
+              <p>The two head halves capture the barrel root and retaining band. The sensor pod mounts underneath on a manually adjustable pivot.</p>
+            </div>
+          </div>
+        </section>
+        <section id="dum-e-drawings">
+          <h2 tabindex="-1">Key dimensions in the model</h2>
+          <p class="intro">The side view locates the two arm pivots. The table gives nominal design dimensions. <a href="#dum-e-fusion-drawings">Open the native Fusion drawing set</a> for the assembly projections and part-number balloons.</p>
+          <div class="table-scroll">
+            <table><thead><tr><th scope="col">Feature</th><th scope="col">Nominal dimension</th><th scope="col">Reference</th></tr></thead><tbody><tr><th scope="row">Base plate</th><td>220 × 260 × 3 mm</td><td>The steel plate sits on the desk.</td></tr><tr><th scope="row">Printed cover</th><td>220 × 220 × 71 mm</td><td>The cover encloses the stationary drive and controller.</td></tr><tr><th scope="row">Shoulder axis</th><td>140 mm</td><td>Height above the desk at the modeled mounting plane.</td></tr><tr><th scope="row">Level reach</th><td>425 mm</td><td>Yaw axis to the shroud tip in the parked pose.</td></tr></tbody></table></div>
+          <p>Dimensions are in millimetres unless otherwise indicated.</p>
+          <div>
+            <h3>Fastener stack at the yaw tower</h3>
+            <p>The R1 joint schedule records 73 fastener locations. At the yaw tower, the candidate M4 screw is 10 mm long. The modeled grip is 6 mm and the receiver depth is 3 mm. A 1 mm packing washer gives 10 − 6 − 1 = 3 mm of nominal engagement. Available depth, head access and insert strength still need a fit trial.</p>
+            <h3>Mass estimates before printing</h3>
+            <p>At the assumed 70% effective material volume, the 220 × 220 × 71 mm base cover is estimated at 312.6 g and the 110 × 110 × 49 mm yaw tower at 116.3 g. The parts register distinguishes fixed mass from parts carried by the shoulder. The latter changes drive torque with arm angle.</p>
+          </div>
+        </section>
+        <section id="dum-e-drives">
+          <h2 tabindex="-1">Three axes, three drive choices</h2>
+          <p class="intro">The yaw bearings carry the turntable. The gear pair sets its angle. At the shoulder, belt reduction gives the servo more leverage over the long arm.</p>
+          <div class="duo drive">
+            <figure class="native-photo"><img data-provenance='{"file":"yaw-pair.png","crop":null,"sha256":"b6b5766ae7962583ad46ad4bcad67a79442699f71b8b3264382befdf13a476a6"}' src="project-assets/dum-e/fusion-gears.png" width="2560" height="1440" alt="The two yellow yaw gears and their hub isolated in the Fusion viewport." data-capture="yaw-pair.png"><figcaption>Fig. 3. <b>Base yaw.</b> The 36-tooth pinion drives the 60-tooth gear. Their 72 mm center distance sets the servo position.</figcaption></figure><figure class="native-photo"><img data-provenance='{"file":"10_belt_drive.png","crop":null,"sha256":"8896a96f1d4d4aeecb6a68fe799653ab0fa13ec65e7b5789bb9c066465383222"}' src="project-assets/dum-e/fusion-belt.png" width="1920" height="1080" alt="Two yellow pulleys linked by the shoulder belt." data-capture="10_belt_drive.png"><figcaption>Fig. 4. <b>Shoulder pitch.</b> The exposed 40-tooth and 100-tooth pulleys give the shoulder a 2.5∶1 reduction.</figcaption></figure></div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Joint</th>
+                  <th scope="col">Drive and support</th>
+                  <th scope="col">Modeled travel</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Base yaw</th>
+                  <td>1.67:1 external gear reduction · two 61810 bearings</td>
+                  <td>−90° to +90°</td>
+                </tr>
+                <tr>
+                  <th scope="row">Shoulder pitch</th>
+                  <td>2.5:1 belt reduction · two 608 bearings</td>
+                  <td>0° to +120°</td>
+                </tr>
+                <tr>
+                  <th scope="row">Head tilt</th>
+                  <td>Direct servo drive · pivot pin and one 608 bearing</td>
+                  <td>−30° to +60°</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small">The sensor pod has a separate manual angle adjustment. The three servos drive the base, shoulder and head.</p>
+        </section>
+        <section id="dum-e-loads">
+          <h2 tabindex="-1">Why the shoulder uses a belt reduction</h2>
+          <p class="intro">Gravity loads the shoulder most heavily when the arm extends away from the base. The sizing study treats the moving parts as point masses and includes allowances for friction, hose drag and acceleration.</p>
+          <div class="calcpair">
+            <div>
+              <h3>Required motor torque</h3>
+              <div>1.270 N·m ÷ (2.5 × 0.95)<br>
+                <strong>≈ 0.535 N·m</strong>
+              </div>
+              <p>Nominal joint torque divided by pulley reduction and assumed transmission efficiency.</p>
+            </div>
+            <div>
+              <h3>Conditional torque margin</h3>
+              <div>0.981 N·m ÷ 0.535 N·m<br>
+                <strong>≈ 1.83×</strong>
+              </div>
+              <p>Assumes the selected servo matches the candidate rated torque. Continuous duty still needs measurement.</p>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Effective material volume</th>
+                  <th scope="col">Calculated shoulder margin</th>
+                  <th scope="col">Against 1.5× target</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">50%</th>
+                  <td>2.26×</td>
+                  <td>Above target</td>
+                </tr>
+                <tr>
+                  <th scope="row">70% · nominal</th>
+                  <td>1.83×</td>
+                  <td>Above target</td>
+                </tr>
+                <tr>
+                  <th scope="row">100% · solid</th>
+                  <td>1.43×</td>
+                  <td>Below target</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small">Effective material volume describes the fraction of solid CAD volume occupied by plastic. Slicer infill, walls and top and bottom layers together determine the actual print mass.</p>
+          <h3>Reading the margin</h3>
+          <p>The nominal case clears the 1.5 design target by 0.33. At the assumed 0.981 N·m rating, a 1.5 margin allows about 0.654 N·m of motor demand. That leaves approximately 0.119 N·m above the nominal 0.535 N·m estimate. Weighing the moving assembly and locating its center of gravity will narrow that uncertainty before a motor is qualified for continuous operation.</p>
+        </section>
+        <section id="dum-e-motion">
+          <h2 tabindex="-1">Reading the joint motion</h2>
+          <p class="intro">Three stills from the Fusion motion study show the return toward the parked position. The angles below are the commanded joint positions, rounded to the nearest degree.</p>
+          <div class="posegroup">
+            <figure class="native-photo"><img data-provenance='{"file":"frame_00715.png","crop":null,"sha256":"90e346ea06245b542699ff92d680395976adfc562c05cacafb17ac0af0bc7d01"}' src="project-assets/dum-e/fusion-scan.png" width="1280" height="720" alt="Arm raised and facing toward the viewer." data-capture="frame_00715.png"><figcaption>Fig. 5. <b>Returning from the scan</b><span>Yaw +31° · Shoulder +44° · Head −16°</span></figcaption></figure><figure class="native-photo"><img data-provenance='{"file":"frame_00725.png","crop":null,"sha256":"867ba777655769be959ef0e9bac7a0f142ef741247acea9eb0efa8ba5246bafb"}' src="project-assets/dum-e/fusion-return.png" width="1280" height="720" alt="Arm lowering toward its parked position." data-capture="frame_00725.png"><figcaption>Fig. 6. <b>Approaching park</b><span>Yaw +17° · Shoulder +24° · Head −9°</span></figcaption></figure><figure class="native-photo"><img data-provenance='{"file":"01_iso.png","crop":null,"sha256":"76d27e0997c48181bc33002725c1eba01eeb53547b9146fd797b0f5399c67bea"}' src="project-assets/dum-e/fusion-parked.png" width="1920" height="1080" alt="Level arm at the parked pose." data-capture="01_iso.png"><figcaption>Fig. 7. <b>Parked</b><span>Yaw 0° · Shoulder 0° · Head 0°</span></figcaption></figure></div>
+          <div class="duo notes">
+            <div>
+              <h3>What moves together</h3>
+              <p>The turntable carries the shoulder and arm. Shoulder pitch carries the head pivot with it. Head tilt is measured relative to the arm, so its angle alone cannot tell you the barrel’s angle to the desk.</p>
+            </div>
+            <div>
+              <h3>What stays independent</h3>
+              <p>The sensor pod is set manually to −16° throughout these three views. The moving frames hide the flexible hose. Its bending and drag need a physical mockup.</p>
+            </div>
+          </div>
+          <p class="small">The Fusion joint sweep checked angular travel and return to the starting pose.</p>
+        </section>
+        <section id="dum-e-electronics">
+          <h2 tabindex="-1">Where the boards go</h2>
+          <p class="intro">Teal solids reserve space for electronics in three locations. The fixed base carries the controller, the moving shoulder carries the computer, and the sensor pod faces forward below the head.</p>
+          <div class="trio">
+            <figure class="native-photo"><img data-provenance='{"file":"uno.png","crop":null,"sha256":"51a6e9a0b60fa12e60da11b71cce55707f13b426243b656d9ed87c798f141d93"}' src="project-assets/dum-e/fusion-base-board.png" width="2560" height="1440" alt="Teal UNO board envelope on the base plate." data-capture="uno.png"><figcaption>Fig. 8. <b>Arduino UNO R4 WiFi.</b> The stationary board supervises motion enable and limit inputs. Its mount needs PCB screw holes.</figcaption></figure><figure class="native-photo"><img data-provenance='{"file":"pi-bay.png","crop":null,"sha256":"2480f55e122bd722d91945de98a6f7fd3bd13b9c77a83564c235e3fe9318893b"}' src="project-assets/dum-e/fusion-pi-bay.png" width="2560" height="1440" alt="Teal Pi envelope in its upright shoulder bay." data-capture="pi-bay.png"><figcaption>Fig. 9. <b>Raspberry Pi 5.</b> The upright bay carries the Pi beside the shoulder. Cable clearance and retention need a fit check.</figcaption></figure><figure class="native-photo"><img data-provenance='{"file":"sensor-pod.png","crop":null,"sha256":"914087a993c2ff926428bf4719b543f390dca0d94e9fac6bf02d35636c8eef99"}' src="project-assets/dum-e/fusion-sensor.png" width="2560" height="1440" alt="Two teal sensor faces beneath the shroud." data-capture="sensor-pod.png"><figcaption>Fig. 10. <b>RGB and thermal sensors.</b> The two apertures face forward. Final carrier dimensions depend on the selected boards and connectors.</figcaption></figure></div>
+          <div class="rulebox">
+            <h3>Why the motor supply changed</h3>
+            <p>Three candidate servos at their listed stall current total <strong>8.1 A</strong>. The proposed bus adapter is rated for <strong>5 A</strong>. The electrical plan gives the Pi its own supply and routes motor current through separately protected branches. The adapter handles servo communication.</p>
+          </div>
+          <p class="small">Board envelopes describe packaging. Detailed PCB layouts, installed wiring and connector clearances require the selected hardware.</p>
+        </section>
+        <section id="dum-e-electrical">
+          <h2 tabindex="-1">Three paths through the robot</h2>
+          <p class="intro">The Pi handles sensing and servo communication. A separate motor rail supplies the actuators, and the UNO supervises the contactor enable.</p>
+          <table><thead><tr><th scope="col">Path</th><th scope="col">Connections in the proposed prototype</th></tr></thead><tbody><tr><th scope="row">Sensor data</th><td>Camera Module 3 over CSI and MLX90640 over I²C to Raspberry Pi 5.</td></tr><tr><th scope="row">Motion commands</th><td>Pi USB to the servo bus adapter, then the shared data bus to the three actuators.</td></tr><tr><th scope="row">Motor power</th><td>12 V supply through the main fuse and K1 contact to individually fused servo branches.</td></tr><tr><th scope="row">Enable and stop</th><td>A normally closed stop contact feeds the coil circuit. The UNO monitors limits and heartbeat and controls the coil driver.</td></tr><tr><th scope="row">Logic power</th><td>The Pi uses its own supply and exchanges supervisory data with the UNO over USB.</td></tr></tbody></table><div class="duo notes">
+            <div>
+              <h3>Command and feedback</h3>
+              <p>The Pi also exchanges supervisory data with the UNO over USB. The adapter and servos share a signal reference. The Pi logs events from its own supply when motor power opens.</p>
+            </div>
+            <div>
+              <h3>Stop behavior</h3>
+              <p>The physical stop opens the coil feed. The UNO can independently remove the driver enable. The proposed lamp test checks both actions before motors are connected.</p>
+            </div>
+          </div>
+          <p class="small">Bench architecture only. Connector pinouts, protection coordination and mechanical shoulder restraint require hardware verification.</p>
+        </section>
+        <section id="dum-e-evidence">
+          <h2 tabindex="-1">Keeping the head above the desk</h2>
+          <p class="intro">The 160 mm barrel sets the silhouette. Lowering the head at the bottom of the shoulder sweep exposed a collision that the arm’s neutral pose concealed.</p>
+          <div class="decision">
+            <div>
+              <span>Original lower tilt limit</span>
+              <b>−60°</b>
+              <p>At zero shoulder angle the rigid model extended <strong>42.54 mm below</strong> the desk.</p>
+            </div>
+            <div>
+              <span>Revised lower tilt limit</span>
+              <b>−30°</b>
+              <p>The same shoulder position gave <strong>28.84 mm clearance</strong> in the R1 geometry study.</p>
+            </div>
+          </div>
+          <h3>What the saved Fusion assembly verified</h3>
+          <p>The native v7 desk check made 63 component bounding-box measurements. Its lowest result was <strong>28.39 mm</strong>, above the 5 mm design target. The joint sweep returned to its starting pose, and the material check found PETG on all 38 printed bodies.</p>
+          <div class="metrics evidence">
+            <div>
+              <b>142</b>
+              <span>checks passed</span>
+            </div>
+            <div>
+              <b>0</b>
+              <span>checks failed</span>
+            </div>
+            <div>
+              <b>3</b>
+              <span>physical checks untested</span>
+            </div>
+          </div>
+          <h3>What a prototype would have to establish</h3>
+          <p>Belt tooth engagement and tension, drivetrain backlash and behavior under load, and flexible-hose clearance through travel remain open. Printed mass, joint play and cable drag can change the real clearance.</p>
+          <p class="small">Sources include the R1 clearance study and the archived Fusion v7 validation run.</p>
+        </section>
+        <section id="dum-e-verification">
+          <h2 tabindex="-1">What passed, and under what conditions</h2>
+          <p class="intro">A passing CAD result answers a specific geometric question. Each row gives the method, the observed result and the claim it supports.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Check and method</th>
+                  <th scope="col">Criterion</th>
+                  <th scope="col">Observed result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Yaw link · Fusion v7</th>
+                  <td>Opposite rotation at 60/36</td>
+                  <td>−1.66667 pinion turns per output turn. Pass.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Shoulder link · Fusion v7</th>
+                  <td>Same rotation at 100/40</td>
+                  <td>2.50000 drive turns per output turn. Pass.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Return pose · Fusion v7</th>
+                  <td>Maximum displacement ≤ 0.02 mm</td>
+                  <td>0.00 mm after the combined sweep. Pass.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Desk sweep · Fusion v7</th>
+                  <td>Minimum height ≥ 5 mm</td>
+                  <td>28.393 mm in 63 bounding-box checks. Pass.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Rigid interference · FreeCAD R1</th>
+                  <td>No overlap above 0.5 mm³ at sampled poses</td>
+                  <td>No reportable overlaps in 150 poses. A deliberately out-of-range shoulder pose yielded 12 overlaps.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Control logic · host simulation</th>
+                  <td>Inhibit at boot and respond to stop, limit or lost heartbeat</td>
+                  <td>Host tests passed the inhibit, trip and recovery cases. UNO R4 WiFi firmware compiled. Installed stop timing is open.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small">The native run totals 142 passed, 0 failed and 3 untested. The FreeCAD study and controls tests are separate evidence. The native validation register below gives the totals for each check family.</p>
+        </section>
+        <section id="dum-e-plan-design">
+          <h2 tabindex="-1">From brief to validated CAD</h2>
+          <p class="intro">The project began with a silhouette and a motion envelope. Each design stage produced a record that a future builder can inspect.</p>
+          <ol class="plan">
+            <li>
+              <div>
+                <h3>Requirements and scope</h3>
+                <em>Defined</em>
+              </div>
+              <div>
+                <p>Set the 220 × 260 mm base footprint, three powered axes, 425 mm level reach and 5 mm minimum desk-clearance target. Keep the pod adjustable by hand.</p>
+                <p>
+                  <strong>Deliverable</strong> Requirements register with target ranges, assumptions and acceptance criteria.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Mechanical architecture</h3>
+                <em>Modeled</em>
+              </div>
+              <div>
+                <p>Split the assembly into base, pinion, turntable and shoulder, shoulder drive, arm, head, sensor pod and flexible hose. Specify purchased bearings, shafts and fasteners alongside the 38 prints.</p>
+                <p>
+                  <strong>Deliverable</strong> Revision-controlled CAD, dimensioned drawings, component register, mechanical BOM and 73-location screw schedule.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Loads, packaging and controls</h3>
+                <em>Analyzed and specified</em>
+              </div>
+              <div>
+                <p>Estimate moving mass and shoulder torque across print-fill scenarios. Reserve space for boards and wire passages, define the power split and plan the supervisory control logic.</p>
+                <p>
+                  <strong>Finding</strong> Estimated shoulder torque margin falls from 1.83 at nominal fill to 1.43 for solid prints, against a 1.5 design target. Actual print mass matters.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Verification and documentation</h3>
+                <em>CAD run complete</em>
+              </div>
+              <div>
+                <p>Check component inventory, material assignments, joint limits, drive ratios, desk clearance and return pose on the saved native model. Record results by revision.</p>
+                <p>
+                  <strong>Deliverable</strong> Fusion v7 run with 142 passes, zero failures and three physical checks outstanding. The assembly views and drive details document the design.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+        <section id="dum-e-plan-build">
+          <h2 tabindex="-1">From CAD to a bench prototype</h2>
+          <p class="intro">These stages describe a proposed inert build. Each stage has an observable result before the next commitment.</p>
+          <ol class="plan">
+            <li>
+              <div>
+                <h3>Qualify interfaces</h3>
+                <em>Planned</em>
+              </div>
+              <div>
+                <p>Measure actual boards, horns, bearings, hose, printer bed and desk clamp. Print the 608, 61810 and M3 insert coupons. Trial-fit the board carriers, shaft and pulley retention.</p>
+                <p>
+                  <strong>Proceed when</strong> Fits are recorded, the drive retains its parts, and board and connector access works with the selected hardware.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Fabricate and assemble</h3>
+                <em>Planned after fit trials</em>
+              </div>
+              <div>
+                <p>Update dimensions and the BOM from the trials. Print and weigh the parts. Assemble the yaw stack, shoulder drive, arm and head in access order. Route an inert hose and wiring with the base anchored.</p>
+                <p>
+                  <strong>Proceed when</strong> The supported assembly moves by hand through its limits with usable slack, secure retention and measured desk clearance.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Commission one axis at a time</h3>
+                <em>Planned</em>
+              </div>
+              <div>
+                <p>Bench-check sensing, motor isolation and the independent stop. Use a supported fixture to check each axis for belt tracking, play, current, heating and position repeatability.</p>
+                <p>
+                  <strong>Proceed when</strong> Measured results meet the acceptance criteria, including controlled shoulder behavior on power loss.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h3>Integrate and document</h3>
+                <em>Planned</em>
+              </div>
+              <div>
+                <p>Run slow coordinated motions on an anchored inert prototype. Measure clearance, routing, loads and repeatability. Record discrepancies, revise the CAD and repeat affected checks.</p>
+                <p>
+                  <strong>Final record</strong> As-built BOM, measured results, photographs and a revised risk register. Any functional suppression system is a separate qualified integration project.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+        <section id="dum-e-bench">
+          <h2 tabindex="-1">What would qualify the first prototype</h2>
+          <p class="intro">Record the hardware revision, setup, measurement and disposition for each test. The three untested Fusion items are assigned to bench checks here.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Open item</th>
+                  <th scope="col">Test setup</th>
+                  <th scope="col">Acceptance evidence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Belt engagement and tension</th>
+                  <td>Supported shoulder fixture with the selected belt, pulleys and servo horn. Sweep the permitted travel by hand.</td>
+                  <td>Record the vendor tension criterion, measured setting, tracking and tooth engagement. Resolve slipping or binding.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Backlash and drive loads</th>
+                  <td>Supported axis with an independent angle reference. Repeat the return move ten times and log current and temperature.</td>
+                  <td>Compare return error against the provisional ±1° target. Establish measured load and thermal limits before coordinated operation.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Flexible hose clearance</th>
+                  <td>Fit the inert loop and wiring on the anchored assembly. Sweep combined poses, including the low shoulder and head limits.</td>
+                  <td>Record the worst desk clearance against 5 mm, slack at endpoints, bend radius and any pinch or drag.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Stop and power loss</th>
+                  <td>Use a lamp first. After bench qualification, repeat on an independently supported axis.</td>
+                  <td>Record lamp extinction, restart inhibition, stop time and shoulder drop. Set the allowable drop from fixture clearance before testing.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="rulebox">
+            <h3>Disposition</h3>
+            <p>Each open fit or test finding goes back to the relevant CAD feature, BOM line or control setting. Repeat the affected checks on the revised model and keep the measured record with the build.</p>
+          </div>
+        </section>
+        <section id="dum-e-record">
+          <h2 tabindex="-1">Native validation register</h2>
+          <p>The saved v7 register contains 145 checks. Grouping by subsystem shows where CAD supplies evidence and where hardware is still needed. The return-to-pose check helps distinguish a reversible joint sweep from an unintended edit to the model.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Check family</th>
+                  <th scope="col">Passed</th>
+                  <th scope="col">Untested</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Assembly</td>
+                  <td>6</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Clearance</td>
+                  <td>28</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Collision</td>
+                  <td>31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Hose</td>
+                  <td>4</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Integrity</td>
+                  <td>5</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Joint limits</td>
+                  <td>4</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Joint motion</td>
+                  <td>30</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Joints</td>
+                  <td>16</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Mass</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Parameters</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Timeline</td>
+                  <td>1</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>Transmission</td>
+                  <td>15</td>
+                  <td>2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="dum-e-conclusion">
+          <h2 tabindex="-1">Conclusion and source records</h2>
+          <p>The revised head limit resolves the modeled desk collision, and the nominal shoulder calculation clears the design target. Qualification now depends on measured print mass, belt engagement, backlash, flexible-line clearance and stop behavior on an independently supported axis.</p>
+          <ul>
+            <li>Fusion v7 assembly. <a href="project-assets/dum-e/Fusion-v7-validation.csv" download>Native validation register (CSV)</a>.</li>
+            <li>R1 mechanical design records. <a href="project-assets/dum-e/04_Mechanical_BOM.csv" download>Mechanical parts register (CSV)</a> and <a href="project-assets/dum-e/Joint_stack_schedule.csv" download>joint stack schedule (CSV)</a>.</li>
+            <li>R1 electrical architecture. <a href="project-assets/dum-e/Electrical_Preliminary_BOM.csv" download>Preliminary electrical bill of materials (CSV)</a>.</li>
+          </ul>
+        </section>
+        <section id="dum-e-plates">
+          <h2 tabindex="-1">Appendix · Fusion model views and dimensions</h2>
+          <div><h3>Base and shoulder</h3><div class="duo platepair"><figure class="native-photo"><img data-provenance='{"file":"04_right.png","crop":[0.16,0.3,0.994,0.91],"sha256":"5914cadf63746d77aa62727a4636a766ef3712535c6cdb80896bca1f73957b12"}' src="project-assets/dum-e/fusion-right.png" width="1601" height="659" alt="Right-side Fusion view of the parked arm on its base plate." data-capture="04_right.png"><figcaption>Fig. 11. Right side, parked. The shoulder axis lies at the center of the yellow cap.</figcaption></figure><figure class="native-photo"><img data-provenance='{"file":"02_front.png","crop":[0.23,0.3,0.762,0.998],"sha256":"3de1fa65038255aeb9e7ba078411ed898469f7dab6059efbfab6a7b9b049c0b6"}' src="project-assets/dum-e/fusion-front.png" width="1021" height="754" alt="Front detail of the head above the base cover." data-capture="02_front.png"><figcaption>Fig. 12. Front detail. The sensor pod sits below the shroud and above the base.</figcaption></figure></div><table><thead><tr><th scope="col">Feature</th><th scope="col">Nominal dimension</th><th scope="col">Reference</th></tr></thead><tbody><tr><th scope="row">Base plate</th><td>220 × 260 × 3 mm</td><td>The steel plate sits on the desk.</td></tr><tr><th scope="row">Printed cover</th><td>220 × 220 × 71 mm</td><td>The cover encloses the stationary drive and controller.</td></tr><tr><th scope="row">Shoulder axis</th><td>140 mm</td><td>Height above the desk at the modeled mounting plane.</td></tr><tr><th scope="row">Level reach</th><td>425 mm</td><td>Yaw axis to the shroud tip in the parked pose.</td></tr></tbody></table></div><div><h3>Yaw gears and shoulder belt</h3><div class="duo platepair"><figure class="native-photo"><img data-provenance='{"file":"yaw-pair.png","crop":null,"sha256":"b6b5766ae7962583ad46ad4bcad67a79442699f71b8b3264382befdf13a476a6"}' src="project-assets/dum-e/fusion-gears.png" width="2560" height="1440" alt="The pinion and hub gear isolated in the Fusion viewport." data-capture="yaw-pair.png"><figcaption>Fig. 13. Isolated yaw gear pair. The small pinion meshes with the larger gear on the hub.</figcaption></figure><figure class="native-photo"><img data-provenance='{"file":"10_belt_drive.png","crop":null,"sha256":"8896a96f1d4d4aeecb6a68fe799653ab0fa13ec65e7b5789bb9c066465383222"}' src="project-assets/dum-e/fusion-belt.png" width="1920" height="1080" alt="Fusion viewport with the shoulder belt guard hidden." data-capture="10_belt_drive.png"><figcaption>Fig. 14. Shoulder drive with the guard hidden. The small pulley drives the large pulley on the arm shaft.</figcaption></figure></div><table><thead><tr><th scope="col">Feature</th><th scope="col">Nominal dimension</th><th scope="col">Reference</th></tr></thead><tbody><tr><th scope="row">Yaw pitch diameters</th><td>54 mm / 90 mm</td><td>36-tooth pinion and 60-tooth ring gear, module 1.5, 20° pressure angle.</td></tr><tr><th scope="row">Yaw shaft spacing</th><td>72 mm</td><td>Center distance of the external gear pair.</td></tr><tr><th scope="row">Pulley pitch diameters</th><td>25.465 mm / 63.662 mm</td><td>40-tooth and 100-tooth pulleys.</td></tr><tr><th scope="row">Shoulder belt</th><td>260 × 6 mm</td><td>130 teeth at 2 mm pitch. Nominal centers are 56.79 mm apart. The cradle allows ±2 mm of tension adjustment.</td></tr></tbody></table></div><div><h3>Arm, head and sensor pod</h3><div class="plateupper"><figure class="native-photo"><img data-provenance='{"file":"04_right.png","crop":[0.148,0.36,0.992,0.665],"sha256":"3dd1714110f9491d0c3dc5e30e78e572d944cf385a9a7d282fd9f3d181ffa526"}' src="project-assets/dum-e/fusion-upper.png" width="1621" height="329" alt="Upper assembly in profile with the shoulder, head and shroud." data-capture="04_right.png"><figcaption>Fig. 15. Right-side detail. The sensor pod sits below the head and the shroud projects forward.</figcaption></figure></div><table><thead><tr><th scope="col">Feature</th><th scope="col">Nominal dimension</th><th scope="col">Reference</th></tr></thead><tbody><tr><th scope="row">Arm pivot spacing</th><td>220 mm</td><td>Shoulder axis to head-tilt axis.</td></tr><tr><th scope="row">Head housing</th><td>115 × 75 × 65 mm</td><td>Length, width and height of the housing.</td></tr><tr><th scope="row">Shroud</th><td>160 mm long</td><td>35 mm outside diameter and 31 mm inside diameter.</td></tr><tr><th scope="row">Arm section</th><td>50 mm deep</td><td>3 mm walls and 6 mm ribs. Nominal side clearance for the tilt servo is 0.2 mm.</td></tr><tr><th scope="row">Head fork</th><td>48 mm opening</td><td>The shroud axis lies 10 mm above the head-tilt axis.</td></tr><tr><th scope="row">Sensor pod</th><td>58 × 30 × 27 mm</td><td>Nominal envelope below the head. Tilt pivot pin is Ø8 mm with a 608 bearing.</td></tr></tbody></table></div><p><a href="reports/dum-e/DUM-E%20Case%20Study.pdf#page=18">Open the 68-component register in the case study (PDF).</a></p></section>
+      <section id="dum-e-fusion-drawings"><h2 tabindex="-1">Appendix · Fusion assembly drawings</h2><p>Each assembly has an isometric parts list and a set of dimensioned projections. Select a sheet to open its vector PDF at full size.</p><p><a href="reports/dum-e/DUME_Engineering_Drawings.pdf">Open all 18 Fusion drawing sheets (PDF)</a></p><table class="drawing-index"><thead><tr><th scope="col">Assembly</th><th scope="col">Ballooned view and parts list</th><th scope="col">Dimensioned views</th></tr></thead><tbody><tr><th scope="row">Full robot</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=1">Sheet 01</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=2">Sheet 02</a></td></tr><tr><th scope="row">Base</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=3">Sheet 03</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=4">Sheet 04</a></td></tr><tr><th scope="row">Yaw pinion</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=5">Sheet 05</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=6">Sheet 06</a></td></tr><tr><th scope="row">Turntable and shoulder</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=7">Sheet 07</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=8">Sheet 08</a></td></tr><tr><th scope="row">Shoulder drive</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=9">Sheet 09</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=10">Sheet 10</a></td></tr><tr><th scope="row">Arm</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=11">Sheet 11</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=12">Sheet 12</a></td></tr><tr><th scope="row">Head</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=13">Sheet 13</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=14">Sheet 14</a></td></tr><tr><th scope="row">Sensor pod</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=15">Sheet 15</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=16">Sheet 16</a></td></tr><tr><th scope="row">Flexible hose</th><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=17">Sheet 17</a></td><td><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=18">Sheet 18</a></td></tr></tbody></table><div class="drawing-gallery"><details class="drawing-pair" open><summary>Full robot · sheets 1–2</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=1"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-01.png" alt="Full robot, isometric view and parts list, Fusion drawing sheet 1 of 18." data-drawing-page="1" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=1">Sheet 01 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=2"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-02.png" alt="Full robot, dimensioned orthographic views, Fusion drawing sheet 2 of 18." data-drawing-page="2" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=2">Sheet 02 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Base · sheets 3–4</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=3"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-03.png" alt="Base, isometric view and parts list, Fusion drawing sheet 3 of 18." data-drawing-page="3" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=3">Sheet 03 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=4"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-04.png" alt="Base, dimensioned orthographic views, Fusion drawing sheet 4 of 18." data-drawing-page="4" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=4">Sheet 04 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Yaw pinion · sheets 5–6</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=5"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-05.png" alt="Yaw pinion, isometric view and parts list, Fusion drawing sheet 5 of 18." data-drawing-page="5" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=5">Sheet 05 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=6"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-06.png" alt="Yaw pinion, dimensioned orthographic views, Fusion drawing sheet 6 of 18." data-drawing-page="6" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=6">Sheet 06 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Turntable and shoulder · sheets 7–8</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=7"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-07.png" alt="Turntable and shoulder, isometric view and parts list, Fusion drawing sheet 7 of 18." data-drawing-page="7" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=7">Sheet 07 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=8"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-08.png" alt="Turntable and shoulder, dimensioned orthographic views, Fusion drawing sheet 8 of 18." data-drawing-page="8" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=8">Sheet 08 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Shoulder drive · sheets 9–10</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=9"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-09.png" alt="Shoulder drive, isometric view and parts list, Fusion drawing sheet 9 of 18." data-drawing-page="9" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=9">Sheet 09 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=10"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-10.png" alt="Shoulder drive, dimensioned orthographic views, Fusion drawing sheet 10 of 18." data-drawing-page="10" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=10">Sheet 10 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Arm · sheets 11–12</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=11"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-11.png" alt="Arm, isometric view and parts list, Fusion drawing sheet 11 of 18." data-drawing-page="11" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=11">Sheet 11 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=12"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-12.png" alt="Arm, dimensioned orthographic views, Fusion drawing sheet 12 of 18." data-drawing-page="12" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=12">Sheet 12 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Head · sheets 13–14</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=13"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-13.png" alt="Head, isometric view and parts list, Fusion drawing sheet 13 of 18." data-drawing-page="13" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=13">Sheet 13 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=14"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-14.png" alt="Head, dimensioned orthographic views, Fusion drawing sheet 14 of 18." data-drawing-page="14" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=14">Sheet 14 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Sensor pod · sheets 15–16</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=15"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-15.png" alt="Sensor pod, isometric view and parts list, Fusion drawing sheet 15 of 18." data-drawing-page="15" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=15">Sheet 15 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=16"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-16.png" alt="Sensor pod, dimensioned orthographic views, Fusion drawing sheet 16 of 18." data-drawing-page="16" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=16">Sheet 16 · Dimensioned orthographic views</a></figcaption></figure></details><details class="drawing-pair"><summary>Flexible hose · sheets 17–18</summary><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=17"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-17.png" alt="Flexible hose, isometric view and parts list, Fusion drawing sheet 17 of 18." data-drawing-page="17" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=17">Sheet 17 · Isometric view and parts list</a></figcaption></figure><figure class="drawing-plate"><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=18"><img width="1450" height="1026" src="project-assets/dum-e/fusion-sheet-18.png" alt="Flexible hose, dimensioned orthographic views, Fusion drawing sheet 18 of 18." data-drawing-page="18" data-source="DUME_Fusion_Drawings.pdf" loading="lazy"></a><figcaption><a href="reports/dum-e/DUME_Engineering_Drawings.pdf#page=18">Sheet 18 · Dimensioned orthographic views</a></figcaption></figure></details></div></section></div>
+        </div>
+        <div class="report-end"><a class="back-to-reports" href="#reports/dum-e">← Back to reports</a></div>
+      </article>
+
+      <article class="report-view" data-page="reports" id="report-bike-rack" aria-labelledby="report-bike-rack-title" hidden>
+        <a class="back-to-reports" href="#reports/bike-rack">← Back to reports</a>
+        <header class="report-intro">
+          <p class="report-meta">Campus trolley bike rack · Solo design study · Static analysis complete</p>
+          <h1 id="report-bike-rack-title" tabindex="-1">Structural design and mounting loads of a campus trolley bicycle rack</h1>
+          <p class="report-byline">Zakary Miles</p>
+          <p class="report-overview">I modeled a welded carrier for two bicycles and compared a cantilever calculation with a static finite element model. Both indicate low stress under the 110 lbf load. The SOLIDWORKS mass estimate of 126.401 kg puts the empty rack at approximately 2.53 times its payload. That result makes the allowable vehicle moment and a gravity-inclusive fixture test central to the next iteration.</p>
+        </header>
+        <div class="report-layout">
+          <aside class="report-sidebar">
+            <details class="contents-menu" open>
+              <summary>Contents</summary>
+              <nav aria-label="Campus trolley bike rack table of contents" class="manuscript-contents">
+                <a href="#bike-rack-envelope">Design envelope</a>
+                <a href="#bike-rack-assembly">Assembly plan</a>
+                <a href="#bike-rack-beam">Mounting loads</a>
+                <a href="#bike-rack-simulation">Static simulation</a>
+                <a href="#bike-rack-nodal">Interpreting the nodal stress traces</a>
+                <a href="#bike-rack-verification">Weight and verification</a>
+                <a href="#bike-rack-conclusion">Conclusion and source records</a>
+              </nav>
+            </details>
+          </aside>
+          <div class="manuscript">
+        <section id="bike-rack-envelope">
+          <h2 tabindex="-1">Design envelope</h2>
+          <p>The brief called for carrying two adult bicycles across the back of a campus trolley. I set the combined bicycle load at 110 lbf. Two channels locate the tires, and a curved rail gives the rider a place to strap each frame.</p>
+          <figure>
+            <img src="project-assets/bike-rack/envelope.png" alt="Original dimensioned rack drawing, 75 inches wide, 25 inches deep and 20 inches tall." loading="lazy" width="506" height="389">
+            <figcaption>Fig. 1. My original envelope drawing. The 25 in rearward projection matters because each bicycle applies its weight at a distance from the trolley mount. <small>Design slides, p. 4</small>
+            </figcaption>
+          </figure>
+          <h3>Interfaces that set the envelope</h3>
+          <p>The channel positions define the fore-aft load locations. The curved rail provides a tie point, so the retention load follows a different path from the vertical wheel load. Before release, the vehicle bolt pattern, rear access and clearances would need to be measured on the actual trolley.</p>
+        </section>
+        <section id="bike-rack-assembly">
+          <h2 tabindex="-1">Assembly plan</h2>
+          <p>I chose annealed 201 stainless steel and planned a welded assembly with a bolted vehicle interface. Wheel loads pass from the two tire channels through four support beams into one mounting frame. The curved rail provides the strap attachment.</p>
+          <figure>
+            <img src="project-assets/bike-rack/assembly.jpg" alt="Assembly drawing with the planned welded joints at the channels, supports and curved rail marked in red." loading="lazy" width="1901" height="1430">
+            <figcaption>Fig. 2. The red marks identify planned welds. The trolley connection was specified separately with galvanized bolts. <small>Design slides, pp. 11–13</small>
+            </figcaption>
+          </figure>
+          <h3>Proposed fabrication sequence</h3>
+          <ol>
+            <li>Saw the support stock to length and machine the mounting holes and two tire channels.</li>
+            <li>Form the curved rail, position the channels on the beams, and MIG weld the assembly.</li>
+            <li>Check bolt access and alignment at the trolley before final installation.</li>
+          </ol>
+          <p>The original $58.56 material estimate used a scrap price of $0.21/lb. Stock, machining time, weld labor and mounting hardware would need separate quotes for a build.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Part</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Role in the planned assembly</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tire channel</td>
+                  <td>2</td>
+                  <td>Receives the wheel loads and locates the tires.</td>
+                </tr>
+                <tr>
+                  <td>Support beam</td>
+                  <td>4</td>
+                  <td>Transfers channel loads into the frame.</td>
+                </tr>
+                <tr>
+                  <td>Mounting frame</td>
+                  <td>1</td>
+                  <td>Bolted interface to the trolley.</td>
+                </tr>
+                <tr>
+                  <td>Curved rail</td>
+                  <td>1</td>
+                  <td>Tie point for bicycle frames.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>The original process plan used a bandsaw for stock preparation, a CNC mill for the holes and channel pockets, a forming die for the rail, and MIG welding for the fixed joints. Machining a channel from block stock removes material already paid for. A formed section is a candidate for the next mass and cost comparison.</p>
+        </section>
+        <section id="bike-rack-beam">
+          <h2 tabindex="-1">Mounting loads</h2>
+          <p>I simplified the support to a cantilever with two 55 lbf loads. Their centers lie 5.25 in and 23.75 in behind the fixed end. Together they produce a bending moment of <strong>1,595 lbf·in</strong> at the mount.</p>
+          <figure>
+            <img class="notebook" src="project-assets/bike-rack/beam-calculation.jpg" alt="Original handwritten free-body diagram and bending calculation with two 55 lbf loads and a calculated safety factor of 31.68." loading="lazy" width="1267" height="1536">
+            <figcaption>Fig. 3. The worksheet treats the support as a solid 2 in square section. It gives about 1,199 psi bending stress and a factor of 31.68 using 38,000 psi for strength. <small>Design slides, p. 8</small>
+            </figcaption>
+          </figure>
+          <h3>Calculation at the fixed end</h3>
+          <p>With the two load centers at 5.25 in and 23.75 in, the root reaction is 110 lbf and the moment is 55 × 5.25 + 55 × 23.75 = 1,595 lbf·in. The idealized 2 in square section has I = bh³/12 ≈ 1.333 in⁴ and c = 1 in. The worksheet rounds I to 1.33 in⁴. Using σ = Mc/I gives approximately 1,199 psi. Dividing 38,000 psi by that stress gives the reported 31.68.</p>
+          <p>This local beam calculation omits bolt preload, contact compliance and weld geometry. The forces at the actual fasteners also depend on their spacing and the stiffness of the trolley bracket.</p>
+        </section>
+        <section id="bike-rack-simulation">
+          <h2 tabindex="-1">Static simulation</h2>
+          <p>I distributed the same 110 lbf over four wheel-load locations in the assembly model and constrained the mounting region. The stress plot peaks at about 966 psi. With a modeled yield strength of 42,350 psi, the static factor of safety is about 44.</p>
+          <figure>
+            <img src="project-assets/bike-rack/static-stress.jpg" alt="Finite element stress contour with four purple load arrows, green mount restraints and a von Mises stress legend in psi." loading="lazy" width="998" height="598">
+            <figcaption>Fig. 4. The stress bands follow the tire channels toward the supports. The green restraints represent an idealized attachment to the trolley. <small>Design slides, pp. 5–7</small>
+            </figcaption>
+          </figure>
+          <h3>Reconciling the two estimates</h3>
+          <p>The hand check uses a single beam and a lower strength value. Using 42,350 psi in both calculations gives about <strong>35.3</strong> for the beam and <strong>43.8</strong> for the assembly. The remaining difference is worth investigating at the same section with matching restraints. Neither calculation measures bolt slip, weld quality or bicycle retention.</p>
+          <figure>
+            <img src="project-assets/bike-rack/safety-factor.jpg" alt="Original assembly factor-of-safety contour and minimum value." loading="lazy" width="832" height="557">
+            <figcaption>Fig. 5. Factor-of-safety plot for the documented load case. The bottom of the legend gives 43.84. Design slides, p. 7.</figcaption>
+          </figure>
+          <h3>Boundary conditions and uncertainty</h3>
+          <p>The 966 psi peak is specific to the applied wheel forces and idealized mounting restraints. The source includes a dynamic stress plot but omits its excitation history. It also gives no mesh-convergence series. Neither the static plot nor the dynamic image establishes fatigue life or strap retention during travel.</p>
+        </section>
+        <section id="bike-rack-nodal">
+  <h2 tabindex="-1">Interpreting the nodal stress traces</h2>
+  <p>The source study also plots von Mises stress at a series of mesh locations. The static trace rises to approximately 220 psi near the beginning of the sampled locations and falls toward 20 psi farther along. The assembly contour reaches 966 psi. These numbers describe different selections of the model. A trace through selected nodes can miss the global maximum.</p>
+  <figure><img src="project-assets/bike-rack/nodal-static.jpg" loading="lazy" alt="Original static nodal stress trace, stress in psi versus mesh location." width="480" height="437"><figcaption>Fig. 6. Static stress at the selected nodes, from the original course slides, p. 6.</figcaption></figure>
+  <figure><img src="project-assets/bike-rack/nodal-dynamic.jpg" loading="lazy" alt="Original linear dynamic nodal stress trace for step 100 at one second." width="480" height="437"><figcaption>Fig. 7. Dynamic study at step 100, time 1 s. The horizontal axis is location.</figcaption></figure>
+  <p>The dynamic trace is a spatial sample at one instant. Its local peak is about 165 psi. To evaluate motion on the trolley, I would first define a vehicle acceleration history and identify the governing instant and location over the whole run. These two curves alone cannot establish a dynamic amplification factor, a fatigue margin or secure bicycle retention.</p>
+</section>
+<section id="bike-rack-verification">
+          <h2 tabindex="-1">Weight and verification</h2>
+          <p>SOLIDWORKS calculated a mass of <strong>126.401 kg</strong>, about 279 lb empty. With both bicycles, the mount would carry about <strong>389 lbf at rest</strong>. The original study documents the bicycle load but leaves the gravity setting unspecified. The reported margin cannot establish that the installation can support that combined load.</p>
+          <figure>
+            <img class="mass" src="project-assets/bike-rack/mass-properties.jpg" alt="Original SOLIDWORKS mass-properties table listing a mass of 126.401 kg and weight of 1,238.73 N." loading="lazy" width="581" height="435">
+            <figcaption>Fig. 8. SOLIDWORKS mass estimate for the rack. The bending moment from the rack itself also depends on its center of gravity. <small>Design slides, p. 3</small>
+            </figcaption>
+          </figure>
+          <h3>Proposed checks before vehicle use</h3>
+          <p>I completed the SOLIDWORKS model and load analysis. Physical load, retention and road tests remain open.</p>
+          <ol>
+            <li>
+              <strong>Establish the mount limits.</strong> Obtain the trolley’s allowable rear load and moment, bolt pattern and clearance envelope. Use those limits to set a rack mass budget.</li>
+            <li>
+              <strong>Compare lighter sections.</strong> Model formed channels in place of the machined stock. Include gravity and check the empty, one-bike and two-bike cases. Record mass, center of gravity, mounting reactions and tip deflection for each.</li>
+            <li>
+              <strong>Check the prediction on a fixture.</strong> Weigh the prototype. Apply known loads at the wheel positions and measure channel deflection, joint slip and residual set after unloading. Compare with the model and agreed mount limits before planning vibration and strap-retention tests.</li>
+          </ol>
+          <h3>How the mount load scales</h3>
+          <p>For the worksheet’s bicycle positions, a gravity-inclusive static moment would be 1,595 + 279d lbf·in, where d is the rearward distance in inches from the mounting plane to the rack center of gravity. Each additional inch of offset adds about 279 lbf·in. The original envelope gives the overall depth but does not locate that center, so a single installed moment cannot be calculated from the slides.</p>
+        </section>
+        <section id="bike-rack-conclusion">
+          <h2 tabindex="-1">Conclusion and source records</h2>
+          <p>The study answers a narrow but useful question. The idealized supports carry the specified bicycle load with stresses well below yield. The 279 lb empty rack changes the integration decision. I would establish the mount’s allowable force and moment, revise the section geometry against that budget, and use a fixture to check deflection and slip before any road trial.</p>
+          <p>Source: Zakary Miles, <i>Bike Rack Design</i>, original course design slides. Geometry and material, pp. 2–4 and 9. Load cases and calculations, pp. 5–8. Cost, manufacturing, assembly and proposed revisions, pp. 10–15.</p>
+        </section>
+      </div>
+        </div>
+        <div class="report-end"><a class="back-to-reports" href="#reports/bike-rack">← Back to reports</a></div>
+      </article>
+      <article class="report-view" data-page="reports" id="report-xcelsior" aria-labelledby="report-xcelsior-title" hidden>
+        <a class="back-to-reports" href="#reports/xcelsior">← Back to reports</a>
+        <header class="report-intro">
+          <p class="report-meta">Built and deployed · May–July 2026</p>
+          <h1 id="report-xcelsior-title" tabindex="-1">Xcelsior: measuring demand for software skills</h1>
+          <p class="report-byline">Zakary Miles</p>
+          <p class="report-overview">When a job ad mentions Python, is it required, preferred, or just part of the company’s stack? I built a job-search and analytics platform that keeps the evidence for each extracted skill. A student can move from a market trend to individual openings and see how their own experience compares.</p>
+        </header>
+        <div class="report-layout">
+          <aside class="report-sidebar">
+            <details class="contents-menu" open>
+              <summary>Contents</summary>
+              <nav aria-label="Xcelsior table of contents" class="manuscript-contents">
+                <a href="#xcelsior-product">From a chart to a job</a>
+                <a href="#xcelsior-extraction">Extracting the evidence</a>
+                <a href="#xcelsior-market">Counting the market</a>
+                <a href="#xcelsior-matching">Explaining a match</a>
+                <a href="#xcelsior-validation">Validation and limits</a>
+              </nav>
+            </details>
+          </aside>
+          <div class="manuscript">
+            <section id="xcelsior-product">
+              <h2 tabindex="-1">From a chart to a job</h2>
+              <p>I built the ingestion pipeline, FastAPI service, PostgreSQL data model, and React interface. A scheduled workflow imports postings from Greenhouse and Lever, runs extraction and deduplication, and records market snapshots. The frontend and API were deployed through Vercel and Render.</p>
+              <figure class="drawing-plate">
+                <a href="project-assets/xcelsior/homepage.webp" aria-label="Enlarge the Xcelsior homepage screenshot"><img src="project-assets/xcelsior/homepage.webp" width="1920" height="1096" loading="lazy" alt="Xcelsior homepage with a nationwide skills chart and links to Explore Skills and Find Jobs."></a>
+                <figcaption>Fig. 1. The homepage in the project’s original preview. The chart shows demand across 13,139 postings at the time of capture.</figcaption>
+              </figure>
+            </section>
+            <section id="xcelsior-extraction">
+              <h2 tabindex="-1">Extracting the evidence</h2>
+              <p>I kept each raw posting so a correction to the extractor could be applied to older data. The first version used an Aho–Corasick matcher to search roughly 600 aliases in one pass. Short names such as “R” needed checks for case, boundaries, and nearby technical terms. Section headings helped distinguish a required skill from one in a wish list. An accepted match retained the sentence that triggered it.</p>
+              <p>On 19 July 2026, the first full run processed 12,217 postings. It found at least one technology in 8,524, extracted compensation in 8,595, and mapped 3,948 titles to standard job families. Those counts describe separate fields and overlap.</p>
+              <p>One error surfaced in the aggregate. A chart put C at roughly 20% because the matcher had picked up the final letter of “U.S.C.” in repeated legal boilerplate. After checking the stored sentences, I tightened the single-letter rule, incremented the extractor version, and reprocessed the corpus.</p>
+            </section>
+            <section id="xcelsior-market">
+              <h2 tabindex="-1">Counting the market</h2>
+              <p>The search results and analytics use the same filter definition for role and geography. A posting with several matching locations contributes once. Cross-source duplicates are grouped conservatively, so two openings with similar titles do not silently become one.</p>
+              <figure class="drawing-plate">
+                <a href="project-assets/xcelsior/skills.webp" aria-label="Enlarge the Xcelsior skills dashboard screenshot"><img src="project-assets/xcelsior/skills.webp" width="1920" height="1096" loading="lazy" alt="Skills dashboard with role and location filters, analyzed jobs, salary coverage, and ranked technology groups."></a>
+                <figcaption>Fig. 2. The dashboard shows the full posting count beside the smaller set with salary data. The displayed median uses only the salary-disclosing set.</figcaption>
+              </figure>
+              <p>In the market test fixture, Python appears in 13 of 23 postings. Three postings have no detected technology and still belong in the denominator. That puts Python’s share at 56.5%. Dropping those three would inflate it to 65%. Eleven postings actually require Python.</p>
+              <p>Location and radius queries have too many combinations to precompute. I cached exact queries between data refreshes and saved daily snapshots for a bounded set of markets. The analytics design record measured about 100–310 ms for a cold national query over roughly 12,000 jobs and about 13 ms for a cached response.</p>
+            </section>
+            <section id="xcelsior-matching">
+              <h2 tabindex="-1">Explaining a match</h2>
+              <figure class="drawing-plate">
+                <a href="project-assets/xcelsior/jobs.webp" aria-label="Enlarge the Xcelsior job search screenshot"><img src="project-assets/xcelsior/jobs.webp" width="1920" height="1096" loading="lazy" alt="Job search results with filters for role, location, level and salary, plus market context for the selected jobs."></a>
+                <figcaption>Fig. 3. The jobs view pairs individual openings with statistics for the same search. Signed-in users can save jobs and compare their profile with a posting’s extracted requirements.</figcaption>
+              </figure>
+              <p>My scoring model weights skills at 55%, title at 25%, and experience at 20%. A required skill carries twice the weight of a preferred skill. When a component cannot be evaluated, its weight is redistributed across the available components.</p>
+              <p>One regression case asks for three required skills and two preferred skills. The candidate has two required skills and one preferred skill, yielding 5 of 8 weighted points. With a matching title and sufficient experience, the score rounds to <strong>79 out of 100</strong>. The explanation names Kafka and Terraform as the gaps so the candidate can decide whether to apply.</p>
+            </section>
+            <section id="xcelsior-validation">
+              <h2 tabindex="-1">Validation and limits</h2>
+              <p>A local evaluation on <time datetime="2026-11-22">22 November 2026</time> compared the extractor’s output with a frozen set of 31 hand-labeled documents.</p>
+              <table>
+                <thead><tr><th scope="col">Check</th><th scope="col">Observed result</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Technology identification</th><td>153 correct matches, zero extra matches, zero missed labels</td></tr>
+                  <tr><th scope="row">Skill requirement level</th><td>151 of 153 matched labels correct</td></tr>
+                  <tr><th scope="row">Normalized job titles</th><td>30 of 30 labeled cases correct</td></tr>
+                  <tr><th scope="row">Compensation extraction</th><td>13 of 13 labeled cases correct</td></tr>
+                </tbody>
+              </table>
+              <p>The small labeled set was developed alongside the extractor. The legal-citation error illustrates what that evaluation can miss. Broader accuracy estimates would need an independently labeled sample across employers, including jobs with missing or ambiguous requirements. The market figures also reflect the boards covered by the pipeline.</p>
+              <p class="source-links"><a href="https://github.com/zjmiles01/Xcelsior">Project repository and original previews</a> · <a href="https://github.com/zjmiles01/Xcelsior/tree/main/docs/adr">Engineering decisions</a> · <a href="https://github.com/zjmiles01/Xcelsior/blob/main/backend/tests/gold/gold_set.yaml">Labeled evaluation set</a> · <a href="https://github.com/zjmiles01/Xcelsior/blob/main/backend/tests/test_matching.py">Match-scoring tests</a></p>
+            </section>
+          </div>
+        </div>
+        <div class="report-end"><a class="back-to-reports" href="#reports/xcelsior">← Back to reports</a></div>
+      </article>
+      <article class="report-view" data-page="reports" id="report-mediaflow" aria-labelledby="report-mediaflow-title" hidden>
+        <a class="back-to-reports" href="#reports/mediaflow">← Back to reports</a>
+        <header class="report-intro">
+          <p class="report-meta">Built and tested locally · <time datetime="2026-08">August 2026</time> version</p>
+          <h1 id="report-mediaflow-title" tabindex="-1">MediaFlow: building a reliable file conversion workspace</h1>
+          <p class="report-byline">Zakary Miles</p>
+          <p class="report-overview">Converting one clip should take a few clicks. Converting a folder of clips raises different questions. Can I close the browser while the files process? Can I keep the originals if a conversion fails? I built the workspace, API, storage layer, and worker around a persistent record of each file and job.</p>
+        </header>
+        <div class="report-layout">
+          <aside class="report-sidebar">
+            <details class="contents-menu" open>
+              <summary>Contents</summary>
+              <nav aria-label="MediaFlow table of contents" class="manuscript-contents">
+                <a href="#mediaflow-workspaces">Workspace ownership</a>
+                <a href="#mediaflow-conversion">From input to output</a>
+                <a href="#mediaflow-queue">Claiming and recovering jobs</a>
+                <a href="#mediaflow-storage">Moving large files</a>
+                <a href="#mediaflow-validation">Validation and limits</a>
+              </nav>
+            </details>
+          </aside>
+          <div class="manuscript">
+            <section id="mediaflow-workspaces">
+              <h2 tabindex="-1">Workspace ownership</h2>
+              <p>Quick Convert gives a visitor one file, one conversion, and one download. A temporary workspace adds folders, batch conversion, and ZIP export for the current browser session. A signed-in user can keep a workspace across sessions. All three use the same conversion engine.</p>
+              <figure class="drawing-plate">
+                <a href="project-assets/mediaflow/temporary-workspace.webp" aria-label="Enlarge the temporary MediaFlow workspace screenshot"><img src="project-assets/mediaflow/temporary-workspace.webp" width="1920" height="1332" loading="lazy" alt="Temporary workspace showing 11 files, 24 hours remaining, MP4 source files, and a Save this workspace button."></a>
+                <figcaption>Fig. 1. An 11-file, 74 MB temporary workspace from my demo. The expiry notice sits beside the option to keep the workspace, before the user starts another batch.</figcaption>
+              </figure>
+              <p>Saving a temporary workspace changes its owner and type in place. Files, jobs, and stored objects retain their identifiers. A user who decides to keep a batch can pick up where they left off without uploading the sources again.</p>
+              <figure class="drawing-plate">
+                <a href="project-assets/mediaflow/saved-workspace.webp" aria-label="Enlarge the saved MediaFlow workspace screenshot"><img src="project-assets/mediaflow/saved-workspace.webp" width="1920" height="1094" loading="lazy" alt="Saved workspace named DEMO FILE with Camcorder and yosemite folders, 12 files, and a Download ZIP action."></a>
+                <figcaption>Fig. 2. A saved demo workspace containing 12 files organized into folders. The conversion controls are the same as in the temporary workspace.</figcaption>
+              </figure>
+            </section>
+            <section id="mediaflow-conversion">
+              <h2 tabindex="-1">From input to output</h2>
+              <p>The browser sends an upload to FastAPI. The API identifies the file from its contents and validates the requested output against a shared format registry. It records a pending job in PostgreSQL and returns HTTP 202. The client can then query the job for progress and, once complete, its download URL.</p>
+              <p>I used the same registry for the browser’s target menu and the worker’s converter selection. Counting the August registry gives <strong>48 input formats and 437 source-to-target pairs</strong>. For example, a video can be converted to another container or have its audio extracted. The registry routes video and audio to FFmpeg, images to ImageMagick, and office documents to the appropriate document engine.</p>
+              <p>A worker reads the source from local storage or stages a remote object on disk, runs the selected converter, and stores the result separately from the original. When FFmpeg reports a usable duration, the worker can turn elapsed media time into a percentage. Otherwise the interface displays progress without a percentage.</p>
+            </section>
+            <section id="mediaflow-queue">
+              <h2 tabindex="-1">Claiming and recovering jobs</h2>
+              <p>I used PostgreSQL for the queue so the workspace can keep the file record and conversion state together. Each worker searches for one eligible job. On PostgreSQL the query locks the row and skips work already locked by another worker. The claim commits before conversion starts, leaving the database transaction short even for a long video.</p>
+              <pre aria-label="Excerpt from the worker job claim"><code>if dialect == "postgresql":
+    statement = statement.with_for_update(skip_locked=True)
+job = await session.scalar(statement)</code></pre>
+              <table>
+                <thead><tr><th scope="col">Event</th><th scope="col">Worker or queue behavior</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Temporary storage failure</th><td>Record the attempt and schedule a retry with increasing delay. The default limit is three attempts.</td></tr>
+                  <tr><th scope="row">Invalid source file</th><td>Mark the job failed and clean up partial output. Repeating the same conversion would reproduce the error.</td></tr>
+                  <tr><th scope="row">Worker disappears</th><td>Workers send heartbeats every two seconds by default. A job becomes eligible for recovery after 30 seconds without one. The cleanup pass requeues it if attempts remain.</td></tr>
+                  <tr><th scope="row">User cancels</th><td>Cancel pending work immediately. For a running conversion, signal the worker and remove the partial output.</td></tr>
+                </tbody>
+              </table>
+            </section>
+            <section id="mediaflow-storage">
+              <h2 tabindex="-1">Moving large files</h2>
+              <p>The local filesystem is the default storage backend. With S3-compatible storage, uploads of 64 MiB or more go directly from the browser to the object store by default. The API coordinates three steps.</p>
+              <ol>
+                <li><strong>Reserve space.</strong> The API checks the workspace quota, counts outstanding reservations, and returns a short-lived upload URL.</li>
+                <li><strong>Transfer the bytes.</strong> The browser uploads directly to the assigned object key. The workspace still has no file record for this upload.</li>
+                <li><strong>Verify and commit.</strong> The API checks ownership, actual object size, remaining quota, and media type. A successful check creates the file record. A size mismatch triggers cleanup of the object and its reservation.</li>
+              </ol>
+              <p>Counting outstanding reservations matters when two uploads start at once. Each might fit individually while their combined size exceeds the quota. Expired reservations are reclaimed so an abandoned browser tab cannot hold space indefinitely.</p>
+            </section>
+            <section id="mediaflow-validation">
+              <h2 tabindex="-1">Validation and limits</h2>
+              <p>A local run on <time datetime="2026-11-22">22 November 2026</time> covered three backend test modules for the job queue, worker scratch files, and direct-upload API. <strong>32 tests passed and two were skipped.</strong> The run used SQLite and a test storage backend. It checked behavior during interrupted work, cancellation, mismatched upload sizes, and concurrent attempts to finalize the same upload.</p>
+              <p>The two skipped cases require FFmpeg and FFprobe. They exercise rejection of a real corrupt media file and an end-to-end conversion after direct upload. The 437 registry entries describe supported routes. This run did not execute every conversion pair.</p>
+              <p>The S3-compatible implementation was exercised locally with MinIO during development. Production worker throughput, cloud transfer latency, and recovery time under concurrent load remain unmeasured. A useful next test would stop one of two PostgreSQL-backed workers mid-conversion and record the time until the other produces a single downloadable output.</p>
+              <p class="source-links"><a href="https://github.com/zjmiles01/MediaFlow">Project repository and architecture</a> · <a href="https://github.com/zjmiles01/MediaFlow/blob/main/backend/app/media/registry.py">Conversion registry</a> · <a href="https://github.com/zjmiles01/MediaFlow/blob/main/backend/app/services/job_queue.py">Queue implementation</a> · <a href="https://github.com/zjmiles01/MediaFlow/tree/main/backend/tests">Backend tests</a></p>
+            </section>
+          </div>
+        </div>
+        <div class="report-end"><a class="back-to-reports" href="#reports/mediaflow">← Back to reports</a></div>
+      </article>
     </main>
 
     <footer>
