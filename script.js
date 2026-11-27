@@ -180,6 +180,31 @@ function renderSkills() {
   }
 }
 
+function setupReportRecords() {
+  // Keep numerical comparisons in a table. For prose, pair each value
+  // with its column heading so the row can be read vertically on a phone.
+  const tables = document.querySelectorAll("#report-dum-e .manuscript table");
+  for (const table of tables) {
+    if (table.closest("#dum-e-loads, #dum-e-record")) continue;
+    const headings = table.tHead.rows[0].cells;
+    const records = document.createElement("dl");
+    records.className = "report-records";
+    for (const row of table.tBodies[0].rows) {
+      const record = document.createElement("div");
+      for (const [index, cell] of Array.from(row.cells).entries()) {
+        const field = document.createElement(index === 0 ? "dt" : "dd");
+        field.append(textElement("span", "record-label", headings[index].textContent));
+        for (const node of cell.childNodes) field.append(node.cloneNode(true));
+        record.append(field);
+      }
+      records.append(record);
+    }
+    const original = table.closest(".table-scroll") || table;
+    original.classList.add("record-source");
+    original.after(records);
+  }
+}
+
 function setupRoutes() {
   const home = document.getElementById("projects");
   const views = document.querySelectorAll("main > [data-page]");
@@ -234,5 +259,6 @@ renderProjects("hardware");
 renderResumeProjects();
 renderSkills();
 setupProjectTabs();
+setupReportRecords();
 setupRoutes();
 setText("#current-year", new Date().getFullYear());
